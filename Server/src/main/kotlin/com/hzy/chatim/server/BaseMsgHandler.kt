@@ -1,12 +1,18 @@
 package com.hzy.chatim.server
 
 import io.netty.channel.ChannelHandlerContext
-import io.netty.channel.SimpleChannelInboundHandler
+import io.netty.channel.ChannelInboundHandlerAdapter
 import java.net.InetAddress
 
 
-class BaseMsgHandler : SimpleChannelInboundHandler<String?>() {
+class BaseMsgHandler : ChannelInboundHandlerAdapter() {
 
+    override fun channelRead(ctx: ChannelHandlerContext?, msg: Any?) {
+        super.channelRead(ctx, msg)
+        //当客户端发送消息时，服务端可以从该方法上获取到该消息值
+        println("Recieve value is : $msg")
+        ctx?.writeAndFlush("成功接收Msg的值。。。$msg")
+    }
 
     /**
      * 覆盖 channelActive 方法 在channel被启用的时候触发 (在建立连接的时候)
@@ -27,9 +33,5 @@ class BaseMsgHandler : SimpleChannelInboundHandler<String?>() {
         super.channelActive(ctx)
     }
 
-    override fun channelRead0(ctx: ChannelHandlerContext?, msg: String?) {
-        //当客户端发送消息时，服务端可以从该方法上获取到该消息值
-        println("Recieve value is : $msg")
-        ctx?.writeAndFlush("成功接收Msg的值。。。$msg")
-    }
+
 }

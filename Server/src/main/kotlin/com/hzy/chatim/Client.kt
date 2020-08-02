@@ -31,7 +31,7 @@ object Client {
                     uidId = i.toString()
                     deviceId = i.toString()
                 }.build()
-                println("send")
+                println("send:$data")
                 channel.writeAndFlush(data)
             }
         } catch (ex: InterruptedException) {
