@@ -1,0 +1,61 @@
+buildscript {
+    dependencies {
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.12'
+    }
+}
+
+plugins {
+    id 'java'
+}
+apply plugin: 'com.google.protobuf'
+
+repositories {
+    mavenCentral()
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+sourceSets {
+    main {
+        proto {
+            srcDir 'src/main/proto'
+        }
+
+        java.srcDirs = ['src/main/java','build/main/java']//指定参与编译source目录
+    }
+//    test {
+//        proto {
+//            srcDir 'src/main/proto'
+//        }
+//    }
+}
+
+
+protobuf {
+    //生成到src目录
+    generatedFilesBaseDir = "$projectDir/build/"
+    protoc {
+        // Download from repositories
+        artifact = 'com.google.protobuf:protoc:3.0.0'
+    }
+//   默认生成java代码
+//    plugins {
+//        javalite {
+//            // The codegen for lite comes as a separate artifact
+//            artifact = 'com.google.protobuf:protoc-gen-javalite:3.0.0'
+//        }
+//    }
+//    generateProtoTasks {
+//        all()*.plugins {
+//            javalite {}
+//        }
+//    }
+}
+
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    //Protobuf
+    implementation 'com.google.protobuf:protobuf-java:3.0.0'
+}

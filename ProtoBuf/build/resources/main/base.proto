@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package protobuf;
+
+message BaseReq {
+  string device_id = 1;        // deviceId , 必填。用户设备唯一标识
+  string uid_id = 2;            // uid , 必填。用户id
+
+}
+
+enum StatusCode {
+  STATUS_CODE_SUCCESS = 0;
+  ERROR_CODE_SESSION_Expired = 1;       // 未登录、session验证失败
+  ERROR_CODE_PARAMETER_ERROR = 2;       //  参数错误
+}
