@@ -1,13 +1,11 @@
-package com.hzy.chatim
+package com.hzy.chatim.client
 
-import com.hzy.chatim.server.ServerInitializer
 import io.netty.bootstrap.Bootstrap
 import io.netty.channel.EventLoopGroup
 import io.netty.channel.nio.NioEventLoopGroup
 import io.netty.channel.socket.nio.NioSocketChannel
 import protobuf.Base
 import java.io.IOException
-import javax.xml.bind.JAXBElement
 
 object Client {
     fun connection() {
@@ -19,7 +17,7 @@ object Client {
         //自定义handler 用来对消息的编码等进行处理 与服务端一致
         bootstrap.group(eventLoopGroup)
                 .channel(NioSocketChannel::class.java)
-                .handler(ServerInitializer())
+                .handler(ClientInitializer())
         try {
             val channel = bootstrap.connect("127.0.0.1", 10000).sync().channel()
 

@@ -1,17 +1,18 @@
-package com.hzy.chatim.server
+package com.hzy.chatim.base
 
+import com.hzy.chatim.manager.ConnectionManager
 import io.netty.channel.ChannelHandlerContext
 import io.netty.channel.ChannelInboundHandlerAdapter
-import java.net.InetAddress
+import protobuf.Base
 
-
-class BaseMsgHandler : ChannelInboundHandlerAdapter() {
-
+val TAG = "ChannelHandler"
+open class BaseChannelHandler : ChannelInboundHandlerAdapter() {
     override fun channelRead(ctx: ChannelHandlerContext?, msg: Any?) {
         super.channelRead(ctx, msg)
-        //当客户端发送消息时，服务端可以从该方法上获取到该消息值
-        println("Recieve value is : $msg")
-        ctx?.writeAndFlush(msg)
+        println("$TAG:$msg")
+        if (msg !is Base.BaseReq) return
+        //储存channel
+        ConnectionManager.refreshChannel(msg.uidId, ctx)
     }
 
     /**
@@ -22,13 +23,15 @@ class BaseMsgHandler : ChannelInboundHandlerAdapter() {
      */
     @Throws(Exception::class)
     override fun channelActive(ctx: ChannelHandlerContext) {
+        print("Connection")
         println("RemoteAddress : " + ctx.channel().remoteAddress() + " active !")
         println("local Address " + ctx.channel().localAddress())
-        // 等同于下一句   ctx.write("");  ctx.flush();
-        ctx.writeAndFlush("Welcome to ${InetAddress.getLocalHost().hostName} service!")
-        //
+        ConnectionManager.refreshChannel(channel = ctx)
         super.channelActive(ctx)
     }
+
+
+
 
 
 }

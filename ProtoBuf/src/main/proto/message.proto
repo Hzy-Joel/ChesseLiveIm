@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package protobuf;
+
+message ChatMessage {
+  string uid = 1;  //发送者uid
+  string tid = 2;  //接收者uid
+  ImType type = 3; //im消息类型
+  TextMessage textContent = 4; //文本信息
+}
+
+
+message TextMessage{
+  string context = 1; //文本内容
+}
+
+enum ImType{
+  TYPE_TEXT = 0;
+}
+

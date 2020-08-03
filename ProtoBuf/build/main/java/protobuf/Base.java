@@ -146,7 +146,7 @@ public final class Base {
      * deviceId , 必填。用户设备唯一标识
      * </pre>
      *
-     * <code>optional string device_id = 1;</code>
+     * <code>optional string deviceId = 1;</code>
      */
     java.lang.String getDeviceId();
     /**
@@ -154,7 +154,7 @@ public final class Base {
      * deviceId , 必填。用户设备唯一标识
      * </pre>
      *
-     * <code>optional string device_id = 1;</code>
+     * <code>optional string deviceId = 1;</code>
      */
     com.google.protobuf.ByteString
         getDeviceIdBytes();
@@ -164,7 +164,7 @@ public final class Base {
      * uid , 必填。用户id
      * </pre>
      *
-     * <code>optional string uid_id = 2;</code>
+     * <code>optional string uidId = 2;</code>
      */
     java.lang.String getUidId();
     /**
@@ -172,7 +172,7 @@ public final class Base {
      * uid , 必填。用户id
      * </pre>
      *
-     * <code>optional string uid_id = 2;</code>
+     * <code>optional string uidId = 2;</code>
      */
     com.google.protobuf.ByteString
         getUidIdBytes();
@@ -253,14 +253,14 @@ public final class Base {
               protobuf.Base.BaseReq.class, protobuf.Base.BaseReq.Builder.class);
     }
 
-    public static final int DEVICE_ID_FIELD_NUMBER = 1;
+    public static final int DEVICEID_FIELD_NUMBER = 1;
     private volatile java.lang.Object deviceId_;
     /**
      * <pre>
      * deviceId , 必填。用户设备唯一标识
      * </pre>
      *
-     * <code>optional string device_id = 1;</code>
+     * <code>optional string deviceId = 1;</code>
      */
     public java.lang.String getDeviceId() {
       java.lang.Object ref = deviceId_;
@@ -279,7 +279,7 @@ public final class Base {
      * deviceId , 必填。用户设备唯一标识
      * </pre>
      *
-     * <code>optional string device_id = 1;</code>
+     * <code>optional string deviceId = 1;</code>
      */
     public com.google.protobuf.ByteString
         getDeviceIdBytes() {
@@ -295,14 +295,14 @@ public final class Base {
       }
     }
 
-    public static final int UID_ID_FIELD_NUMBER = 2;
+    public static final int UIDID_FIELD_NUMBER = 2;
     private volatile java.lang.Object uidId_;
     /**
      * <pre>
      * uid , 必填。用户id
      * </pre>
      *
-     * <code>optional string uid_id = 2;</code>
+     * <code>optional string uidId = 2;</code>
      */
     public java.lang.String getUidId() {
       java.lang.Object ref = uidId_;
@@ -321,7 +321,7 @@ public final class Base {
      * uid , 必填。用户id
      * </pre>
      *
-     * <code>optional string uid_id = 2;</code>
+     * <code>optional string uidId = 2;</code>
      */
     public com.google.protobuf.ByteString
         getUidIdBytes() {
@@ -398,9 +398,9 @@ public final class Base {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptorForType().hashCode();
-      hash = (37 * hash) + DEVICE_ID_FIELD_NUMBER;
+      hash = (37 * hash) + DEVICEID_FIELD_NUMBER;
       hash = (53 * hash) + getDeviceId().hashCode();
-      hash = (37 * hash) + UID_ID_FIELD_NUMBER;
+      hash = (37 * hash) + UIDID_FIELD_NUMBER;
       hash = (53 * hash) + getUidId().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -629,7 +629,7 @@ public final class Base {
        * deviceId , 必填。用户设备唯一标识
        * </pre>
        *
-       * <code>optional string device_id = 1;</code>
+       * <code>optional string deviceId = 1;</code>
        */
       public java.lang.String getDeviceId() {
         java.lang.Object ref = deviceId_;
@@ -648,7 +648,7 @@ public final class Base {
        * deviceId , 必填。用户设备唯一标识
        * </pre>
        *
-       * <code>optional string device_id = 1;</code>
+       * <code>optional string deviceId = 1;</code>
        */
       public com.google.protobuf.ByteString
           getDeviceIdBytes() {
@@ -668,7 +668,7 @@ public final class Base {
        * deviceId , 必填。用户设备唯一标识
        * </pre>
        *
-       * <code>optional string device_id = 1;</code>
+       * <code>optional string deviceId = 1;</code>
        */
       public Builder setDeviceId(
           java.lang.String value) {
@@ -685,7 +685,7 @@ public final class Base {
        * deviceId , 必填。用户设备唯一标识
        * </pre>
        *
-       * <code>optional string device_id = 1;</code>
+       * <code>optional string deviceId = 1;</code>
        */
       public Builder clearDeviceId() {
         
@@ -698,7 +698,7 @@ public final class Base {
        * deviceId , 必填。用户设备唯一标识
        * </pre>
        *
-       * <code>optional string device_id = 1;</code>
+       * <code>optional string deviceId = 1;</code>
        */
       public Builder setDeviceIdBytes(
           com.google.protobuf.ByteString value) {
@@ -718,7 +718,7 @@ public final class Base {
        * uid , 必填。用户id
        * </pre>
        *
-       * <code>optional string uid_id = 2;</code>
+       * <code>optional string uidId = 2;</code>
        */
       public java.lang.String getUidId() {
         java.lang.Object ref = uidId_;
@@ -737,7 +737,7 @@ public final class Base {
        * uid , 必填。用户id
        * </pre>
        *
-       * <code>optional string uid_id = 2;</code>
+       * <code>optional string uidId = 2;</code>
        */
       public com.google.protobuf.ByteString
           getUidIdBytes() {
@@ -757,7 +757,7 @@ public final class Base {
        * uid , 必填。用户id
        * </pre>
        *
-       * <code>optional string uid_id = 2;</code>
+       * <code>optional string uidId = 2;</code>
        */
       public Builder setUidId(
           java.lang.String value) {
@@ -774,7 +774,7 @@ public final class Base {
        * uid , 必填。用户id
        * </pre>
        *
-       * <code>optional string uid_id = 2;</code>
+       * <code>optional string uidId = 2;</code>
        */
       public Builder clearUidId() {
         
@@ -787,7 +787,7 @@ public final class Base {
        * uid , 必填。用户id
        * </pre>
        *
-       * <code>optional string uid_id = 2;</code>
+       * <code>optional string uidId = 2;</code>
        */
       public Builder setUidIdBytes(
           com.google.protobuf.ByteString value) {
@@ -849,11 +849,820 @@ public final class Base {
 
   }
 
+  public interface BaseRspOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:protobuf.BaseRsp)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional .protobuf.StatusCode errorCode = 1;</code>
+     */
+    int getErrorCodeValue();
+    /**
+     * <code>optional .protobuf.StatusCode errorCode = 1;</code>
+     */
+    protobuf.Base.StatusCode getErrorCode();
+
+    /**
+     * <pre>
+     *错误数据
+     * </pre>
+     *
+     * <code>optional string errorMsg = 2;</code>
+     */
+    java.lang.String getErrorMsg();
+    /**
+     * <pre>
+     *错误数据
+     * </pre>
+     *
+     * <code>optional string errorMsg = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getErrorMsgBytes();
+
+    /**
+     * <pre>
+     *数据
+     * </pre>
+     *
+     * <code>optional string data = 3;</code>
+     */
+    java.lang.String getData();
+    /**
+     * <pre>
+     *数据
+     * </pre>
+     *
+     * <code>optional string data = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getDataBytes();
+  }
+  /**
+   * Protobuf type {@code protobuf.BaseRsp}
+   */
+  public  static final class BaseRsp extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:protobuf.BaseRsp)
+      BaseRspOrBuilder {
+    // Use BaseRsp.newBuilder() to construct.
+    private BaseRsp(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private BaseRsp() {
+      errorCode_ = 0;
+      errorMsg_ = "";
+      data_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private BaseRsp(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              int rawValue = input.readEnum();
+
+              errorCode_ = rawValue;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              errorMsg_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              data_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return protobuf.Base.internal_static_protobuf_BaseRsp_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return protobuf.Base.internal_static_protobuf_BaseRsp_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              protobuf.Base.BaseRsp.class, protobuf.Base.BaseRsp.Builder.class);
+    }
+
+    public static final int ERRORCODE_FIELD_NUMBER = 1;
+    private int errorCode_;
+    /**
+     * <code>optional .protobuf.StatusCode errorCode = 1;</code>
+     */
+    public int getErrorCodeValue() {
+      return errorCode_;
+    }
+    /**
+     * <code>optional .protobuf.StatusCode errorCode = 1;</code>
+     */
+    public protobuf.Base.StatusCode getErrorCode() {
+      protobuf.Base.StatusCode result = protobuf.Base.StatusCode.valueOf(errorCode_);
+      return result == null ? protobuf.Base.StatusCode.UNRECOGNIZED : result;
+    }
+
+    public static final int ERRORMSG_FIELD_NUMBER = 2;
+    private volatile java.lang.Object errorMsg_;
+    /**
+     * <pre>
+     *错误数据
+     * </pre>
+     *
+     * <code>optional string errorMsg = 2;</code>
+     */
+    public java.lang.String getErrorMsg() {
+      java.lang.Object ref = errorMsg_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        errorMsg_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *错误数据
+     * </pre>
+     *
+     * <code>optional string errorMsg = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getErrorMsgBytes() {
+      java.lang.Object ref = errorMsg_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        errorMsg_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DATA_FIELD_NUMBER = 3;
+    private volatile java.lang.Object data_;
+    /**
+     * <pre>
+     *数据
+     * </pre>
+     *
+     * <code>optional string data = 3;</code>
+     */
+    public java.lang.String getData() {
+      java.lang.Object ref = data_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        data_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *数据
+     * </pre>
+     *
+     * <code>optional string data = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDataBytes() {
+      java.lang.Object ref = data_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        data_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (errorCode_ != protobuf.Base.StatusCode.STATUS_CODE_SUCCESS.getNumber()) {
+        output.writeEnum(1, errorCode_);
+      }
+      if (!getErrorMsgBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, errorMsg_);
+      }
+      if (!getDataBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, data_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (errorCode_ != protobuf.Base.StatusCode.STATUS_CODE_SUCCESS.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, errorCode_);
+      }
+      if (!getErrorMsgBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, errorMsg_);
+      }
+      if (!getDataBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, data_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof protobuf.Base.BaseRsp)) {
+        return super.equals(obj);
+      }
+      protobuf.Base.BaseRsp other = (protobuf.Base.BaseRsp) obj;
+
+      boolean result = true;
+      result = result && errorCode_ == other.errorCode_;
+      result = result && getErrorMsg()
+          .equals(other.getErrorMsg());
+      result = result && getData()
+          .equals(other.getData());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (37 * hash) + ERRORCODE_FIELD_NUMBER;
+      hash = (53 * hash) + errorCode_;
+      hash = (37 * hash) + ERRORMSG_FIELD_NUMBER;
+      hash = (53 * hash) + getErrorMsg().hashCode();
+      hash = (37 * hash) + DATA_FIELD_NUMBER;
+      hash = (53 * hash) + getData().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static protobuf.Base.BaseRsp parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protobuf.Base.BaseRsp parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protobuf.Base.BaseRsp parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protobuf.Base.BaseRsp parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protobuf.Base.BaseRsp parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protobuf.Base.BaseRsp parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protobuf.Base.BaseRsp parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static protobuf.Base.BaseRsp parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protobuf.Base.BaseRsp parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protobuf.Base.BaseRsp parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(protobuf.Base.BaseRsp prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code protobuf.BaseRsp}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:protobuf.BaseRsp)
+        protobuf.Base.BaseRspOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return protobuf.Base.internal_static_protobuf_BaseRsp_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return protobuf.Base.internal_static_protobuf_BaseRsp_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                protobuf.Base.BaseRsp.class, protobuf.Base.BaseRsp.Builder.class);
+      }
+
+      // Construct using protobuf.Base.BaseRsp.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        errorCode_ = 0;
+
+        errorMsg_ = "";
+
+        data_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return protobuf.Base.internal_static_protobuf_BaseRsp_descriptor;
+      }
+
+      public protobuf.Base.BaseRsp getDefaultInstanceForType() {
+        return protobuf.Base.BaseRsp.getDefaultInstance();
+      }
+
+      public protobuf.Base.BaseRsp build() {
+        protobuf.Base.BaseRsp result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public protobuf.Base.BaseRsp buildPartial() {
+        protobuf.Base.BaseRsp result = new protobuf.Base.BaseRsp(this);
+        result.errorCode_ = errorCode_;
+        result.errorMsg_ = errorMsg_;
+        result.data_ = data_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof protobuf.Base.BaseRsp) {
+          return mergeFrom((protobuf.Base.BaseRsp)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(protobuf.Base.BaseRsp other) {
+        if (other == protobuf.Base.BaseRsp.getDefaultInstance()) return this;
+        if (other.errorCode_ != 0) {
+          setErrorCodeValue(other.getErrorCodeValue());
+        }
+        if (!other.getErrorMsg().isEmpty()) {
+          errorMsg_ = other.errorMsg_;
+          onChanged();
+        }
+        if (!other.getData().isEmpty()) {
+          data_ = other.data_;
+          onChanged();
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        protobuf.Base.BaseRsp parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (protobuf.Base.BaseRsp) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int errorCode_ = 0;
+      /**
+       * <code>optional .protobuf.StatusCode errorCode = 1;</code>
+       */
+      public int getErrorCodeValue() {
+        return errorCode_;
+      }
+      /**
+       * <code>optional .protobuf.StatusCode errorCode = 1;</code>
+       */
+      public Builder setErrorCodeValue(int value) {
+        errorCode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional .protobuf.StatusCode errorCode = 1;</code>
+       */
+      public protobuf.Base.StatusCode getErrorCode() {
+        protobuf.Base.StatusCode result = protobuf.Base.StatusCode.valueOf(errorCode_);
+        return result == null ? protobuf.Base.StatusCode.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>optional .protobuf.StatusCode errorCode = 1;</code>
+       */
+      public Builder setErrorCode(protobuf.Base.StatusCode value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        errorCode_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional .protobuf.StatusCode errorCode = 1;</code>
+       */
+      public Builder clearErrorCode() {
+        
+        errorCode_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object errorMsg_ = "";
+      /**
+       * <pre>
+       *错误数据
+       * </pre>
+       *
+       * <code>optional string errorMsg = 2;</code>
+       */
+      public java.lang.String getErrorMsg() {
+        java.lang.Object ref = errorMsg_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          errorMsg_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *错误数据
+       * </pre>
+       *
+       * <code>optional string errorMsg = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getErrorMsgBytes() {
+        java.lang.Object ref = errorMsg_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          errorMsg_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *错误数据
+       * </pre>
+       *
+       * <code>optional string errorMsg = 2;</code>
+       */
+      public Builder setErrorMsg(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        errorMsg_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *错误数据
+       * </pre>
+       *
+       * <code>optional string errorMsg = 2;</code>
+       */
+      public Builder clearErrorMsg() {
+        
+        errorMsg_ = getDefaultInstance().getErrorMsg();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *错误数据
+       * </pre>
+       *
+       * <code>optional string errorMsg = 2;</code>
+       */
+      public Builder setErrorMsgBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        errorMsg_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object data_ = "";
+      /**
+       * <pre>
+       *数据
+       * </pre>
+       *
+       * <code>optional string data = 3;</code>
+       */
+      public java.lang.String getData() {
+        java.lang.Object ref = data_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          data_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *数据
+       * </pre>
+       *
+       * <code>optional string data = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDataBytes() {
+        java.lang.Object ref = data_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          data_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *数据
+       * </pre>
+       *
+       * <code>optional string data = 3;</code>
+       */
+      public Builder setData(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        data_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *数据
+       * </pre>
+       *
+       * <code>optional string data = 3;</code>
+       */
+      public Builder clearData() {
+        
+        data_ = getDefaultInstance().getData();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *数据
+       * </pre>
+       *
+       * <code>optional string data = 3;</code>
+       */
+      public Builder setDataBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        data_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:protobuf.BaseRsp)
+    }
+
+    // @@protoc_insertion_point(class_scope:protobuf.BaseRsp)
+    private static final protobuf.Base.BaseRsp DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new protobuf.Base.BaseRsp();
+    }
+
+    public static protobuf.Base.BaseRsp getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<BaseRsp>
+        PARSER = new com.google.protobuf.AbstractParser<BaseRsp>() {
+      public BaseRsp parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new BaseRsp(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BaseRsp> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BaseRsp> getParserForType() {
+      return PARSER;
+    }
+
+    public protobuf.Base.BaseRsp getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protobuf_BaseReq_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protobuf_BaseReq_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protobuf_BaseRsp_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protobuf_BaseRsp_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -863,11 +1672,13 @@ public final class Base {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nbase.proto\022\010protobuf\",\n\007BaseReq\022\021\n\tdev" +
-      "ice_id\030\001 \001(\t\022\016\n\006uid_id\030\002 \001(\t*e\n\nStatusCo" +
-      "de\022\027\n\023STATUS_CODE_SUCCESS\020\000\022\036\n\032ERROR_COD" +
-      "E_SESSION_Expired\020\001\022\036\n\032ERROR_CODE_PARAME" +
-      "TER_ERROR\020\002b\006proto3"
+      "\n\nbase.proto\022\010protobuf\"*\n\007BaseReq\022\020\n\010dev" +
+      "iceId\030\001 \001(\t\022\r\n\005uidId\030\002 \001(\t\"R\n\007BaseRsp\022\'\n" +
+      "\terrorCode\030\001 \001(\0162\024.protobuf.StatusCode\022\020" +
+      "\n\010errorMsg\030\002 \001(\t\022\014\n\004data\030\003 \001(\t*e\n\nStatus" +
+      "Code\022\027\n\023STATUS_CODE_SUCCESS\020\000\022\036\n\032ERROR_C" +
+      "ODE_SESSION_Expired\020\001\022\036\n\032ERROR_CODE_PARA" +
+      "METER_ERROR\020\002b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -887,6 +1698,12 @@ public final class Base {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_BaseReq_descriptor,
         new java.lang.String[] { "DeviceId", "UidId", });
+    internal_static_protobuf_BaseRsp_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_protobuf_BaseRsp_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protobuf_BaseRsp_descriptor,
+        new java.lang.String[] { "ErrorCode", "ErrorMsg", "Data", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
