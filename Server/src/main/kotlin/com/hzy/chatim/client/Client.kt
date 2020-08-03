@@ -5,6 +5,7 @@ import io.netty.channel.EventLoopGroup
 import io.netty.channel.nio.NioEventLoopGroup
 import io.netty.channel.socket.nio.NioSocketChannel
 import protobuf.Base
+import protobuf.Message
 import java.io.IOException
 
 object Client {
@@ -25,22 +26,55 @@ object Client {
             while (i < Int.MAX_VALUE) {
                 i++
                 Thread.sleep(5000)
-                val data = Base.BaseReq.newBuilder().apply {
-                    uidId = i.toString()
-                    deviceId = i.toString()
-                }.build()
-                println("send:$data")
+                val data = create(i)
                 channel.writeAndFlush(data)
+                println("send:\n$data")
             }
         } catch (ex: InterruptedException) {
             ex.printStackTrace()
         } catch (ex: IOException) {
             ex.printStackTrace()
         } finally {
-            eventLoopGroup.shutdownGracefully()
+             eventLoopGroup.shutdownGracefully()
+        }
+    }
+
+    private fun create(i: Int): Base.BaseReq? {
+        val build = Base.BaseReq.newBuilder().apply {
+            uidId = i.toString()
+            deviceId = i.toString()
+        }
+        if (i == 0) return build.apply {
+            val msg = Message.ConnectMessage.newBuilder().apply {
+                uid = i.toString()
+            }.build()
+            connectMsg = msg
+            type = Base.DataType.TYPE_CONNECT_MSG
+        }.build()
+        return when {
+            (i % 2 == 0) -> {
+                val msg = Message.ChatMessage.newBuilder().apply {
+                    uid = i.toString()
+                }.build()
+                build.apply {
+                    imMsg = msg
+                    type = Base.DataType.TYPE_IM_MSG
+                    println("do:type->$type")
+                }.build()
+            }
+            else -> {
+                val msg = Message.HeartBeat.newBuilder().apply {
+                    uid = i.toString()
+                }.build()
+                build.apply {
+                    hbMsg = msg
+                    type = Base.DataType.TYPE_HB_MSG
+                }.build()
+            }
         }
     }
 }
+
 
 fun main() {
     Client.connection()

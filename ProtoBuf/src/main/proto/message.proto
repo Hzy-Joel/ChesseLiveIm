@@ -9,9 +9,18 @@ message ChatMessage {
   TextMessage textContent = 4; //文本信息
 }
 
-
 message TextMessage{
   string context = 1; //文本内容
+}
+
+
+message ConnectMessage{
+  string uid = 1;  //发送者uid
+}
+
+message HeartBeat{
+  string uid = 1;  //发送者uid
+//  string uuid = 2; //时间戳
 }
 
 enum ImType{

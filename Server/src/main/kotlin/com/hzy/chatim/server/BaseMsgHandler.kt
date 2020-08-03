@@ -2,6 +2,7 @@ package com.hzy.chatim.server
 
 import io.netty.channel.ChannelHandlerContext
 import io.netty.channel.ChannelInboundHandlerAdapter
+import protobuf.Base
 import java.net.InetAddress
 
 
@@ -11,6 +12,18 @@ class BaseMsgHandler : ChannelInboundHandlerAdapter() {
         super.channelRead(ctx, msg)
         //当客户端发送消息时，服务端可以从该方法上获取到该消息值
         println("Recieve value is : $msg")
+        if (msg !is Base.BaseReq) return
+        when (msg.type) {
+            Base.DataType.TYPE_HB_MSG -> {
+//                println("Recieve TYPE_HB_MSG is : ${msg.hbMsg}")
+            }
+            Base.DataType.TYPE_CONNECT_MSG -> {
+//                println("Recieve TYPE_CONNECT_MSG is : ${msg.connectMsg}")
+            }
+            Base.DataType.TYPE_IM_MSG -> {
+//                println("Recieve TYPE_IM_MSG is : ${msg.imMsg}")
+            }
+        }
         ctx?.writeAndFlush(msg)
     }
 

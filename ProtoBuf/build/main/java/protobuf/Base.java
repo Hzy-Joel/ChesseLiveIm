@@ -15,6 +15,141 @@ public final class Base {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   /**
+   * <pre>
+   *数据类型
+   * </pre>
+   *
+   * Protobuf enum {@code protobuf.DataType}
+   */
+  public enum DataType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     *连接消息
+     * </pre>
+     *
+     * <code>TYPE_CONNECT_MSG = 0;</code>
+     */
+    TYPE_CONNECT_MSG(0),
+    /**
+     * <pre>
+     *Im消息
+     * </pre>
+     *
+     * <code>TYPE_IM_MSG = 1;</code>
+     */
+    TYPE_IM_MSG(1),
+    /**
+     * <pre>
+     *心跳消息
+     * </pre>
+     *
+     * <code>TYPE_HB_MSG = 2;</code>
+     */
+    TYPE_HB_MSG(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <pre>
+     *连接消息
+     * </pre>
+     *
+     * <code>TYPE_CONNECT_MSG = 0;</code>
+     */
+    public static final int TYPE_CONNECT_MSG_VALUE = 0;
+    /**
+     * <pre>
+     *Im消息
+     * </pre>
+     *
+     * <code>TYPE_IM_MSG = 1;</code>
+     */
+    public static final int TYPE_IM_MSG_VALUE = 1;
+    /**
+     * <pre>
+     *心跳消息
+     * </pre>
+     *
+     * <code>TYPE_HB_MSG = 2;</code>
+     */
+    public static final int TYPE_HB_MSG_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static DataType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static DataType forNumber(int value) {
+      switch (value) {
+        case 0: return TYPE_CONNECT_MSG;
+        case 1: return TYPE_IM_MSG;
+        case 2: return TYPE_HB_MSG;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<DataType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        DataType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<DataType>() {
+            public DataType findValueByNumber(int number) {
+              return DataType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return protobuf.Base.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final DataType[] VALUES = values();
+
+    public static DataType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private DataType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:protobuf.DataType)
+  }
+
+  /**
    * Protobuf enum {@code protobuf.StatusCode}
    */
   public enum StatusCode
@@ -111,7 +246,7 @@ public final class Base {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return protobuf.Base.getDescriptor().getEnumTypes().get(0);
+      return protobuf.Base.getDescriptor().getEnumTypes().get(1);
     }
 
     private static final StatusCode[] VALUES = values();
@@ -176,6 +311,52 @@ public final class Base {
      */
     com.google.protobuf.ByteString
         getUidIdBytes();
+
+    /**
+     * <pre>
+     *消息类型
+     * </pre>
+     *
+     * <code>optional .protobuf.DataType type = 3;</code>
+     */
+    int getTypeValue();
+    /**
+     * <pre>
+     *消息类型
+     * </pre>
+     *
+     * <code>optional .protobuf.DataType type = 3;</code>
+     */
+    protobuf.Base.DataType getType();
+
+    /**
+     * <code>optional .protobuf.ConnectMessage connectMsg = 4;</code>
+     */
+    protobuf.Message.ConnectMessage getConnectMsg();
+    /**
+     * <code>optional .protobuf.ConnectMessage connectMsg = 4;</code>
+     */
+    protobuf.Message.ConnectMessageOrBuilder getConnectMsgOrBuilder();
+
+    /**
+     * <code>optional .protobuf.ChatMessage imMsg = 5;</code>
+     */
+    protobuf.Message.ChatMessage getImMsg();
+    /**
+     * <code>optional .protobuf.ChatMessage imMsg = 5;</code>
+     */
+    protobuf.Message.ChatMessageOrBuilder getImMsgOrBuilder();
+
+    /**
+     * <code>optional .protobuf.HeartBeat hbMsg = 6;</code>
+     */
+    protobuf.Message.HeartBeat getHbMsg();
+    /**
+     * <code>optional .protobuf.HeartBeat hbMsg = 6;</code>
+     */
+    protobuf.Message.HeartBeatOrBuilder getHbMsgOrBuilder();
+
+    public protobuf.Base.BaseReq.DataCase getDataCase();
   }
   /**
    * Protobuf type {@code protobuf.BaseReq}
@@ -191,6 +372,7 @@ public final class Base {
     private BaseReq() {
       deviceId_ = "";
       uidId_ = "";
+      type_ = 0;
     }
 
     @java.lang.Override
@@ -230,6 +412,54 @@ public final class Base {
               uidId_ = s;
               break;
             }
+            case 24: {
+              int rawValue = input.readEnum();
+
+              type_ = rawValue;
+              break;
+            }
+            case 34: {
+              protobuf.Message.ConnectMessage.Builder subBuilder = null;
+              if (dataCase_ == 4) {
+                subBuilder = ((protobuf.Message.ConnectMessage) data_).toBuilder();
+              }
+              data_ =
+                  input.readMessage(protobuf.Message.ConnectMessage.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((protobuf.Message.ConnectMessage) data_);
+                data_ = subBuilder.buildPartial();
+              }
+              dataCase_ = 4;
+              break;
+            }
+            case 42: {
+              protobuf.Message.ChatMessage.Builder subBuilder = null;
+              if (dataCase_ == 5) {
+                subBuilder = ((protobuf.Message.ChatMessage) data_).toBuilder();
+              }
+              data_ =
+                  input.readMessage(protobuf.Message.ChatMessage.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((protobuf.Message.ChatMessage) data_);
+                data_ = subBuilder.buildPartial();
+              }
+              dataCase_ = 5;
+              break;
+            }
+            case 50: {
+              protobuf.Message.HeartBeat.Builder subBuilder = null;
+              if (dataCase_ == 6) {
+                subBuilder = ((protobuf.Message.HeartBeat) data_).toBuilder();
+              }
+              data_ =
+                  input.readMessage(protobuf.Message.HeartBeat.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((protobuf.Message.HeartBeat) data_);
+                data_ = subBuilder.buildPartial();
+              }
+              dataCase_ = 6;
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -251,6 +481,46 @@ public final class Base {
       return protobuf.Base.internal_static_protobuf_BaseReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               protobuf.Base.BaseReq.class, protobuf.Base.BaseReq.Builder.class);
+    }
+
+    private int dataCase_ = 0;
+    private java.lang.Object data_;
+    public enum DataCase
+        implements com.google.protobuf.Internal.EnumLite {
+      CONNECTMSG(4),
+      IMMSG(5),
+      HBMSG(6),
+      DATA_NOT_SET(0);
+      private final int value;
+      private DataCase(int value) {
+        this.value = value;
+      }
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static DataCase valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static DataCase forNumber(int value) {
+        switch (value) {
+          case 4: return CONNECTMSG;
+          case 5: return IMMSG;
+          case 6: return HBMSG;
+          case 0: return DATA_NOT_SET;
+          default: return null;
+        }
+      }
+      public int getNumber() {
+        return this.value;
+      }
+    };
+
+    public DataCase
+    getDataCase() {
+      return DataCase.forNumber(
+          dataCase_);
     }
 
     public static final int DEVICEID_FIELD_NUMBER = 1;
@@ -337,6 +607,90 @@ public final class Base {
       }
     }
 
+    public static final int TYPE_FIELD_NUMBER = 3;
+    private int type_;
+    /**
+     * <pre>
+     *消息类型
+     * </pre>
+     *
+     * <code>optional .protobuf.DataType type = 3;</code>
+     */
+    public int getTypeValue() {
+      return type_;
+    }
+    /**
+     * <pre>
+     *消息类型
+     * </pre>
+     *
+     * <code>optional .protobuf.DataType type = 3;</code>
+     */
+    public protobuf.Base.DataType getType() {
+      protobuf.Base.DataType result = protobuf.Base.DataType.valueOf(type_);
+      return result == null ? protobuf.Base.DataType.UNRECOGNIZED : result;
+    }
+
+    public static final int CONNECTMSG_FIELD_NUMBER = 4;
+    /**
+     * <code>optional .protobuf.ConnectMessage connectMsg = 4;</code>
+     */
+    public protobuf.Message.ConnectMessage getConnectMsg() {
+      if (dataCase_ == 4) {
+         return (protobuf.Message.ConnectMessage) data_;
+      }
+      return protobuf.Message.ConnectMessage.getDefaultInstance();
+    }
+    /**
+     * <code>optional .protobuf.ConnectMessage connectMsg = 4;</code>
+     */
+    public protobuf.Message.ConnectMessageOrBuilder getConnectMsgOrBuilder() {
+      if (dataCase_ == 4) {
+         return (protobuf.Message.ConnectMessage) data_;
+      }
+      return protobuf.Message.ConnectMessage.getDefaultInstance();
+    }
+
+    public static final int IMMSG_FIELD_NUMBER = 5;
+    /**
+     * <code>optional .protobuf.ChatMessage imMsg = 5;</code>
+     */
+    public protobuf.Message.ChatMessage getImMsg() {
+      if (dataCase_ == 5) {
+         return (protobuf.Message.ChatMessage) data_;
+      }
+      return protobuf.Message.ChatMessage.getDefaultInstance();
+    }
+    /**
+     * <code>optional .protobuf.ChatMessage imMsg = 5;</code>
+     */
+    public protobuf.Message.ChatMessageOrBuilder getImMsgOrBuilder() {
+      if (dataCase_ == 5) {
+         return (protobuf.Message.ChatMessage) data_;
+      }
+      return protobuf.Message.ChatMessage.getDefaultInstance();
+    }
+
+    public static final int HBMSG_FIELD_NUMBER = 6;
+    /**
+     * <code>optional .protobuf.HeartBeat hbMsg = 6;</code>
+     */
+    public protobuf.Message.HeartBeat getHbMsg() {
+      if (dataCase_ == 6) {
+         return (protobuf.Message.HeartBeat) data_;
+      }
+      return protobuf.Message.HeartBeat.getDefaultInstance();
+    }
+    /**
+     * <code>optional .protobuf.HeartBeat hbMsg = 6;</code>
+     */
+    public protobuf.Message.HeartBeatOrBuilder getHbMsgOrBuilder() {
+      if (dataCase_ == 6) {
+         return (protobuf.Message.HeartBeat) data_;
+      }
+      return protobuf.Message.HeartBeat.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -355,6 +709,18 @@ public final class Base {
       if (!getUidIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, uidId_);
       }
+      if (type_ != protobuf.Base.DataType.TYPE_CONNECT_MSG.getNumber()) {
+        output.writeEnum(3, type_);
+      }
+      if (dataCase_ == 4) {
+        output.writeMessage(4, (protobuf.Message.ConnectMessage) data_);
+      }
+      if (dataCase_ == 5) {
+        output.writeMessage(5, (protobuf.Message.ChatMessage) data_);
+      }
+      if (dataCase_ == 6) {
+        output.writeMessage(6, (protobuf.Message.HeartBeat) data_);
+      }
     }
 
     public int getSerializedSize() {
@@ -367,6 +733,22 @@ public final class Base {
       }
       if (!getUidIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, uidId_);
+      }
+      if (type_ != protobuf.Base.DataType.TYPE_CONNECT_MSG.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(3, type_);
+      }
+      if (dataCase_ == 4) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, (protobuf.Message.ConnectMessage) data_);
+      }
+      if (dataCase_ == 5) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, (protobuf.Message.ChatMessage) data_);
+      }
+      if (dataCase_ == 6) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, (protobuf.Message.HeartBeat) data_);
       }
       memoizedSize = size;
       return size;
@@ -388,6 +770,26 @@ public final class Base {
           .equals(other.getDeviceId());
       result = result && getUidId()
           .equals(other.getUidId());
+      result = result && type_ == other.type_;
+      result = result && getDataCase().equals(
+          other.getDataCase());
+      if (!result) return false;
+      switch (dataCase_) {
+        case 4:
+          result = result && getConnectMsg()
+              .equals(other.getConnectMsg());
+          break;
+        case 5:
+          result = result && getImMsg()
+              .equals(other.getImMsg());
+          break;
+        case 6:
+          result = result && getHbMsg()
+              .equals(other.getHbMsg());
+          break;
+        case 0:
+        default:
+      }
       return result;
     }
 
@@ -402,6 +804,24 @@ public final class Base {
       hash = (53 * hash) + getDeviceId().hashCode();
       hash = (37 * hash) + UIDID_FIELD_NUMBER;
       hash = (53 * hash) + getUidId().hashCode();
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + type_;
+      switch (dataCase_) {
+        case 4:
+          hash = (37 * hash) + CONNECTMSG_FIELD_NUMBER;
+          hash = (53 * hash) + getConnectMsg().hashCode();
+          break;
+        case 5:
+          hash = (37 * hash) + IMMSG_FIELD_NUMBER;
+          hash = (53 * hash) + getImMsg().hashCode();
+          break;
+        case 6:
+          hash = (37 * hash) + HBMSG_FIELD_NUMBER;
+          hash = (53 * hash) + getHbMsg().hashCode();
+          break;
+        case 0:
+        default:
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -524,6 +944,10 @@ public final class Base {
 
         uidId_ = "";
 
+        type_ = 0;
+
+        dataCase_ = 0;
+        data_ = null;
         return this;
       }
 
@@ -548,6 +972,29 @@ public final class Base {
         protobuf.Base.BaseReq result = new protobuf.Base.BaseReq(this);
         result.deviceId_ = deviceId_;
         result.uidId_ = uidId_;
+        result.type_ = type_;
+        if (dataCase_ == 4) {
+          if (connectMsgBuilder_ == null) {
+            result.data_ = data_;
+          } else {
+            result.data_ = connectMsgBuilder_.build();
+          }
+        }
+        if (dataCase_ == 5) {
+          if (imMsgBuilder_ == null) {
+            result.data_ = data_;
+          } else {
+            result.data_ = imMsgBuilder_.build();
+          }
+        }
+        if (dataCase_ == 6) {
+          if (hbMsgBuilder_ == null) {
+            result.data_ = data_;
+          } else {
+            result.data_ = hbMsgBuilder_.build();
+          }
+        }
+        result.dataCase_ = dataCase_;
         onBuilt();
         return result;
       }
@@ -597,6 +1044,26 @@ public final class Base {
           uidId_ = other.uidId_;
           onChanged();
         }
+        if (other.type_ != 0) {
+          setTypeValue(other.getTypeValue());
+        }
+        switch (other.getDataCase()) {
+          case CONNECTMSG: {
+            mergeConnectMsg(other.getConnectMsg());
+            break;
+          }
+          case IMMSG: {
+            mergeImMsg(other.getImMsg());
+            break;
+          }
+          case HBMSG: {
+            mergeHbMsg(other.getHbMsg());
+            break;
+          }
+          case DATA_NOT_SET: {
+            break;
+          }
+        }
         onChanged();
         return this;
       }
@@ -622,6 +1089,21 @@ public final class Base {
         }
         return this;
       }
+      private int dataCase_ = 0;
+      private java.lang.Object data_;
+      public DataCase
+          getDataCase() {
+        return DataCase.forNumber(
+            dataCase_);
+      }
+
+      public Builder clearData() {
+        dataCase_ = 0;
+        data_ = null;
+        onChanged();
+        return this;
+      }
+
 
       private java.lang.Object deviceId_ = "";
       /**
@@ -799,6 +1281,460 @@ public final class Base {
         uidId_ = value;
         onChanged();
         return this;
+      }
+
+      private int type_ = 0;
+      /**
+       * <pre>
+       *消息类型
+       * </pre>
+       *
+       * <code>optional .protobuf.DataType type = 3;</code>
+       */
+      public int getTypeValue() {
+        return type_;
+      }
+      /**
+       * <pre>
+       *消息类型
+       * </pre>
+       *
+       * <code>optional .protobuf.DataType type = 3;</code>
+       */
+      public Builder setTypeValue(int value) {
+        type_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *消息类型
+       * </pre>
+       *
+       * <code>optional .protobuf.DataType type = 3;</code>
+       */
+      public protobuf.Base.DataType getType() {
+        protobuf.Base.DataType result = protobuf.Base.DataType.valueOf(type_);
+        return result == null ? protobuf.Base.DataType.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       *消息类型
+       * </pre>
+       *
+       * <code>optional .protobuf.DataType type = 3;</code>
+       */
+      public Builder setType(protobuf.Base.DataType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *消息类型
+       * </pre>
+       *
+       * <code>optional .protobuf.DataType type = 3;</code>
+       */
+      public Builder clearType() {
+        
+        type_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          protobuf.Message.ConnectMessage, protobuf.Message.ConnectMessage.Builder, protobuf.Message.ConnectMessageOrBuilder> connectMsgBuilder_;
+      /**
+       * <code>optional .protobuf.ConnectMessage connectMsg = 4;</code>
+       */
+      public protobuf.Message.ConnectMessage getConnectMsg() {
+        if (connectMsgBuilder_ == null) {
+          if (dataCase_ == 4) {
+            return (protobuf.Message.ConnectMessage) data_;
+          }
+          return protobuf.Message.ConnectMessage.getDefaultInstance();
+        } else {
+          if (dataCase_ == 4) {
+            return connectMsgBuilder_.getMessage();
+          }
+          return protobuf.Message.ConnectMessage.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .protobuf.ConnectMessage connectMsg = 4;</code>
+       */
+      public Builder setConnectMsg(protobuf.Message.ConnectMessage value) {
+        if (connectMsgBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          data_ = value;
+          onChanged();
+        } else {
+          connectMsgBuilder_.setMessage(value);
+        }
+        dataCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>optional .protobuf.ConnectMessage connectMsg = 4;</code>
+       */
+      public Builder setConnectMsg(
+          protobuf.Message.ConnectMessage.Builder builderForValue) {
+        if (connectMsgBuilder_ == null) {
+          data_ = builderForValue.build();
+          onChanged();
+        } else {
+          connectMsgBuilder_.setMessage(builderForValue.build());
+        }
+        dataCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>optional .protobuf.ConnectMessage connectMsg = 4;</code>
+       */
+      public Builder mergeConnectMsg(protobuf.Message.ConnectMessage value) {
+        if (connectMsgBuilder_ == null) {
+          if (dataCase_ == 4 &&
+              data_ != protobuf.Message.ConnectMessage.getDefaultInstance()) {
+            data_ = protobuf.Message.ConnectMessage.newBuilder((protobuf.Message.ConnectMessage) data_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            data_ = value;
+          }
+          onChanged();
+        } else {
+          if (dataCase_ == 4) {
+            connectMsgBuilder_.mergeFrom(value);
+          }
+          connectMsgBuilder_.setMessage(value);
+        }
+        dataCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>optional .protobuf.ConnectMessage connectMsg = 4;</code>
+       */
+      public Builder clearConnectMsg() {
+        if (connectMsgBuilder_ == null) {
+          if (dataCase_ == 4) {
+            dataCase_ = 0;
+            data_ = null;
+            onChanged();
+          }
+        } else {
+          if (dataCase_ == 4) {
+            dataCase_ = 0;
+            data_ = null;
+          }
+          connectMsgBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>optional .protobuf.ConnectMessage connectMsg = 4;</code>
+       */
+      public protobuf.Message.ConnectMessage.Builder getConnectMsgBuilder() {
+        return getConnectMsgFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .protobuf.ConnectMessage connectMsg = 4;</code>
+       */
+      public protobuf.Message.ConnectMessageOrBuilder getConnectMsgOrBuilder() {
+        if ((dataCase_ == 4) && (connectMsgBuilder_ != null)) {
+          return connectMsgBuilder_.getMessageOrBuilder();
+        } else {
+          if (dataCase_ == 4) {
+            return (protobuf.Message.ConnectMessage) data_;
+          }
+          return protobuf.Message.ConnectMessage.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .protobuf.ConnectMessage connectMsg = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          protobuf.Message.ConnectMessage, protobuf.Message.ConnectMessage.Builder, protobuf.Message.ConnectMessageOrBuilder> 
+          getConnectMsgFieldBuilder() {
+        if (connectMsgBuilder_ == null) {
+          if (!(dataCase_ == 4)) {
+            data_ = protobuf.Message.ConnectMessage.getDefaultInstance();
+          }
+          connectMsgBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              protobuf.Message.ConnectMessage, protobuf.Message.ConnectMessage.Builder, protobuf.Message.ConnectMessageOrBuilder>(
+                  (protobuf.Message.ConnectMessage) data_,
+                  getParentForChildren(),
+                  isClean());
+          data_ = null;
+        }
+        dataCase_ = 4;
+        onChanged();;
+        return connectMsgBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          protobuf.Message.ChatMessage, protobuf.Message.ChatMessage.Builder, protobuf.Message.ChatMessageOrBuilder> imMsgBuilder_;
+      /**
+       * <code>optional .protobuf.ChatMessage imMsg = 5;</code>
+       */
+      public protobuf.Message.ChatMessage getImMsg() {
+        if (imMsgBuilder_ == null) {
+          if (dataCase_ == 5) {
+            return (protobuf.Message.ChatMessage) data_;
+          }
+          return protobuf.Message.ChatMessage.getDefaultInstance();
+        } else {
+          if (dataCase_ == 5) {
+            return imMsgBuilder_.getMessage();
+          }
+          return protobuf.Message.ChatMessage.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .protobuf.ChatMessage imMsg = 5;</code>
+       */
+      public Builder setImMsg(protobuf.Message.ChatMessage value) {
+        if (imMsgBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          data_ = value;
+          onChanged();
+        } else {
+          imMsgBuilder_.setMessage(value);
+        }
+        dataCase_ = 5;
+        return this;
+      }
+      /**
+       * <code>optional .protobuf.ChatMessage imMsg = 5;</code>
+       */
+      public Builder setImMsg(
+          protobuf.Message.ChatMessage.Builder builderForValue) {
+        if (imMsgBuilder_ == null) {
+          data_ = builderForValue.build();
+          onChanged();
+        } else {
+          imMsgBuilder_.setMessage(builderForValue.build());
+        }
+        dataCase_ = 5;
+        return this;
+      }
+      /**
+       * <code>optional .protobuf.ChatMessage imMsg = 5;</code>
+       */
+      public Builder mergeImMsg(protobuf.Message.ChatMessage value) {
+        if (imMsgBuilder_ == null) {
+          if (dataCase_ == 5 &&
+              data_ != protobuf.Message.ChatMessage.getDefaultInstance()) {
+            data_ = protobuf.Message.ChatMessage.newBuilder((protobuf.Message.ChatMessage) data_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            data_ = value;
+          }
+          onChanged();
+        } else {
+          if (dataCase_ == 5) {
+            imMsgBuilder_.mergeFrom(value);
+          }
+          imMsgBuilder_.setMessage(value);
+        }
+        dataCase_ = 5;
+        return this;
+      }
+      /**
+       * <code>optional .protobuf.ChatMessage imMsg = 5;</code>
+       */
+      public Builder clearImMsg() {
+        if (imMsgBuilder_ == null) {
+          if (dataCase_ == 5) {
+            dataCase_ = 0;
+            data_ = null;
+            onChanged();
+          }
+        } else {
+          if (dataCase_ == 5) {
+            dataCase_ = 0;
+            data_ = null;
+          }
+          imMsgBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>optional .protobuf.ChatMessage imMsg = 5;</code>
+       */
+      public protobuf.Message.ChatMessage.Builder getImMsgBuilder() {
+        return getImMsgFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .protobuf.ChatMessage imMsg = 5;</code>
+       */
+      public protobuf.Message.ChatMessageOrBuilder getImMsgOrBuilder() {
+        if ((dataCase_ == 5) && (imMsgBuilder_ != null)) {
+          return imMsgBuilder_.getMessageOrBuilder();
+        } else {
+          if (dataCase_ == 5) {
+            return (protobuf.Message.ChatMessage) data_;
+          }
+          return protobuf.Message.ChatMessage.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .protobuf.ChatMessage imMsg = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          protobuf.Message.ChatMessage, protobuf.Message.ChatMessage.Builder, protobuf.Message.ChatMessageOrBuilder> 
+          getImMsgFieldBuilder() {
+        if (imMsgBuilder_ == null) {
+          if (!(dataCase_ == 5)) {
+            data_ = protobuf.Message.ChatMessage.getDefaultInstance();
+          }
+          imMsgBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              protobuf.Message.ChatMessage, protobuf.Message.ChatMessage.Builder, protobuf.Message.ChatMessageOrBuilder>(
+                  (protobuf.Message.ChatMessage) data_,
+                  getParentForChildren(),
+                  isClean());
+          data_ = null;
+        }
+        dataCase_ = 5;
+        onChanged();;
+        return imMsgBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          protobuf.Message.HeartBeat, protobuf.Message.HeartBeat.Builder, protobuf.Message.HeartBeatOrBuilder> hbMsgBuilder_;
+      /**
+       * <code>optional .protobuf.HeartBeat hbMsg = 6;</code>
+       */
+      public protobuf.Message.HeartBeat getHbMsg() {
+        if (hbMsgBuilder_ == null) {
+          if (dataCase_ == 6) {
+            return (protobuf.Message.HeartBeat) data_;
+          }
+          return protobuf.Message.HeartBeat.getDefaultInstance();
+        } else {
+          if (dataCase_ == 6) {
+            return hbMsgBuilder_.getMessage();
+          }
+          return protobuf.Message.HeartBeat.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .protobuf.HeartBeat hbMsg = 6;</code>
+       */
+      public Builder setHbMsg(protobuf.Message.HeartBeat value) {
+        if (hbMsgBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          data_ = value;
+          onChanged();
+        } else {
+          hbMsgBuilder_.setMessage(value);
+        }
+        dataCase_ = 6;
+        return this;
+      }
+      /**
+       * <code>optional .protobuf.HeartBeat hbMsg = 6;</code>
+       */
+      public Builder setHbMsg(
+          protobuf.Message.HeartBeat.Builder builderForValue) {
+        if (hbMsgBuilder_ == null) {
+          data_ = builderForValue.build();
+          onChanged();
+        } else {
+          hbMsgBuilder_.setMessage(builderForValue.build());
+        }
+        dataCase_ = 6;
+        return this;
+      }
+      /**
+       * <code>optional .protobuf.HeartBeat hbMsg = 6;</code>
+       */
+      public Builder mergeHbMsg(protobuf.Message.HeartBeat value) {
+        if (hbMsgBuilder_ == null) {
+          if (dataCase_ == 6 &&
+              data_ != protobuf.Message.HeartBeat.getDefaultInstance()) {
+            data_ = protobuf.Message.HeartBeat.newBuilder((protobuf.Message.HeartBeat) data_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            data_ = value;
+          }
+          onChanged();
+        } else {
+          if (dataCase_ == 6) {
+            hbMsgBuilder_.mergeFrom(value);
+          }
+          hbMsgBuilder_.setMessage(value);
+        }
+        dataCase_ = 6;
+        return this;
+      }
+      /**
+       * <code>optional .protobuf.HeartBeat hbMsg = 6;</code>
+       */
+      public Builder clearHbMsg() {
+        if (hbMsgBuilder_ == null) {
+          if (dataCase_ == 6) {
+            dataCase_ = 0;
+            data_ = null;
+            onChanged();
+          }
+        } else {
+          if (dataCase_ == 6) {
+            dataCase_ = 0;
+            data_ = null;
+          }
+          hbMsgBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>optional .protobuf.HeartBeat hbMsg = 6;</code>
+       */
+      public protobuf.Message.HeartBeat.Builder getHbMsgBuilder() {
+        return getHbMsgFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .protobuf.HeartBeat hbMsg = 6;</code>
+       */
+      public protobuf.Message.HeartBeatOrBuilder getHbMsgOrBuilder() {
+        if ((dataCase_ == 6) && (hbMsgBuilder_ != null)) {
+          return hbMsgBuilder_.getMessageOrBuilder();
+        } else {
+          if (dataCase_ == 6) {
+            return (protobuf.Message.HeartBeat) data_;
+          }
+          return protobuf.Message.HeartBeat.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .protobuf.HeartBeat hbMsg = 6;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          protobuf.Message.HeartBeat, protobuf.Message.HeartBeat.Builder, protobuf.Message.HeartBeatOrBuilder> 
+          getHbMsgFieldBuilder() {
+        if (hbMsgBuilder_ == null) {
+          if (!(dataCase_ == 6)) {
+            data_ = protobuf.Message.HeartBeat.getDefaultInstance();
+          }
+          hbMsgBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              protobuf.Message.HeartBeat, protobuf.Message.HeartBeat.Builder, protobuf.Message.HeartBeatOrBuilder>(
+                  (protobuf.Message.HeartBeat) data_,
+                  getParentForChildren(),
+                  isClean());
+          data_ = null;
+        }
+        dataCase_ = 6;
+        onChanged();;
+        return hbMsgBuilder_;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1672,13 +2608,19 @@ public final class Base {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nbase.proto\022\010protobuf\"*\n\007BaseReq\022\020\n\010dev" +
-      "iceId\030\001 \001(\t\022\r\n\005uidId\030\002 \001(\t\"R\n\007BaseRsp\022\'\n" +
-      "\terrorCode\030\001 \001(\0162\024.protobuf.StatusCode\022\020" +
-      "\n\010errorMsg\030\002 \001(\t\022\014\n\004data\030\003 \001(\t*e\n\nStatus" +
-      "Code\022\027\n\023STATUS_CODE_SUCCESS\020\000\022\036\n\032ERROR_C" +
-      "ODE_SESSION_Expired\020\001\022\036\n\032ERROR_CODE_PARA" +
-      "METER_ERROR\020\002b\006proto3"
+      "\n\nbase.proto\022\010protobuf\032\rmessage.proto\"\322\001" +
+      "\n\007BaseReq\022\020\n\010deviceId\030\001 \001(\t\022\r\n\005uidId\030\002 \001" +
+      "(\t\022 \n\004type\030\003 \001(\0162\022.protobuf.DataType\022.\n\n" +
+      "connectMsg\030\004 \001(\0132\030.protobuf.ConnectMessa" +
+      "geH\000\022&\n\005imMsg\030\005 \001(\0132\025.protobuf.ChatMessa" +
+      "geH\000\022$\n\005hbMsg\030\006 \001(\0132\023.protobuf.HeartBeat" +
+      "H\000B\006\n\004data\"R\n\007BaseRsp\022\'\n\terrorCode\030\001 \001(\016" +
+      "2\024.protobuf.StatusCode\022\020\n\010errorMsg\030\002 \001(\t" +
+      "\022\014\n\004data\030\003 \001(\t*B\n\010DataType\022\024\n\020TYPE_CONNE" +
+      "CT_MSG\020\000\022\017\n\013TYPE_IM_MSG\020\001\022\017\n\013TYPE_HB_MSG",
+      "\020\002*e\n\nStatusCode\022\027\n\023STATUS_CODE_SUCCESS\020" +
+      "\000\022\036\n\032ERROR_CODE_SESSION_Expired\020\001\022\036\n\032ERR" +
+      "OR_CODE_PARAMETER_ERROR\020\002b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1691,19 +2633,21 @@ public final class Base {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          protobuf.Message.getDescriptor(),
         }, assigner);
     internal_static_protobuf_BaseReq_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_protobuf_BaseReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_BaseReq_descriptor,
-        new java.lang.String[] { "DeviceId", "UidId", });
+        new java.lang.String[] { "DeviceId", "UidId", "Type", "ConnectMsg", "ImMsg", "HbMsg", "Data", });
     internal_static_protobuf_BaseRsp_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_protobuf_BaseRsp_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_BaseRsp_descriptor,
         new java.lang.String[] { "ErrorCode", "ErrorMsg", "Data", });
+    protobuf.Message.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
