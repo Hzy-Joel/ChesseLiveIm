@@ -5,6 +5,6 @@ import java.time.LocalDateTime
 
 object Log {
     fun i(message: Any?, tag: String = TAG) {
-        println("${LocalDateTime.now()} $tag :$message")
+        println("[${LocalDateTime.now()}]:   $tag :$message \n")
     }
 }

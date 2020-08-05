@@ -272,8 +272,8 @@ public final class Base {
     // @@protoc_insertion_point(enum_scope:protobuf.StatusCode)
   }
 
-  public interface BaseReqOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:protobuf.BaseReq)
+  public interface BaseMsgOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:protobuf.BaseMsg)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -314,10 +314,45 @@ public final class Base {
 
     /**
      * <pre>
+     * 错误码
+     * </pre>
+     *
+     * <code>optional .protobuf.StatusCode errorCode = 3;</code>
+     */
+    int getErrorCodeValue();
+    /**
+     * <pre>
+     * 错误码
+     * </pre>
+     *
+     * <code>optional .protobuf.StatusCode errorCode = 3;</code>
+     */
+    protobuf.Base.StatusCode getErrorCode();
+
+    /**
+     * <pre>
+     * 错误提示
+     * </pre>
+     *
+     * <code>optional string errorMsg = 4;</code>
+     */
+    java.lang.String getErrorMsg();
+    /**
+     * <pre>
+     * 错误提示
+     * </pre>
+     *
+     * <code>optional string errorMsg = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getErrorMsgBytes();
+
+    /**
+     * <pre>
      *消息类型
      * </pre>
      *
-     * <code>optional .protobuf.DataType type = 3;</code>
+     * <code>optional .protobuf.DataType type = 5;</code>
      */
     int getTypeValue();
     /**
@@ -325,53 +360,55 @@ public final class Base {
      *消息类型
      * </pre>
      *
-     * <code>optional .protobuf.DataType type = 3;</code>
+     * <code>optional .protobuf.DataType type = 5;</code>
      */
     protobuf.Base.DataType getType();
 
     /**
-     * <code>optional .protobuf.ConnectMessage connectMsg = 4;</code>
+     * <code>optional .protobuf.ConnectMessage connectMsg = 6;</code>
      */
     protobuf.Message.ConnectMessage getConnectMsg();
     /**
-     * <code>optional .protobuf.ConnectMessage connectMsg = 4;</code>
+     * <code>optional .protobuf.ConnectMessage connectMsg = 6;</code>
      */
     protobuf.Message.ConnectMessageOrBuilder getConnectMsgOrBuilder();
 
     /**
-     * <code>optional .protobuf.ChatMessage imMsg = 5;</code>
+     * <code>optional .protobuf.ChatMessage imMsg = 7;</code>
      */
     protobuf.Message.ChatMessage getImMsg();
     /**
-     * <code>optional .protobuf.ChatMessage imMsg = 5;</code>
+     * <code>optional .protobuf.ChatMessage imMsg = 7;</code>
      */
     protobuf.Message.ChatMessageOrBuilder getImMsgOrBuilder();
 
     /**
-     * <code>optional .protobuf.HeartBeat hbMsg = 6;</code>
+     * <code>optional .protobuf.HeartBeat hbMsg = 8;</code>
      */
     protobuf.Message.HeartBeat getHbMsg();
     /**
-     * <code>optional .protobuf.HeartBeat hbMsg = 6;</code>
+     * <code>optional .protobuf.HeartBeat hbMsg = 8;</code>
      */
     protobuf.Message.HeartBeatOrBuilder getHbMsgOrBuilder();
 
-    public protobuf.Base.BaseReq.DataCase getDataCase();
+    public protobuf.Base.BaseMsg.DataCase getDataCase();
   }
   /**
-   * Protobuf type {@code protobuf.BaseReq}
+   * Protobuf type {@code protobuf.BaseMsg}
    */
-  public  static final class BaseReq extends
+  public  static final class BaseMsg extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:protobuf.BaseReq)
-      BaseReqOrBuilder {
-    // Use BaseReq.newBuilder() to construct.
-    private BaseReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      // @@protoc_insertion_point(message_implements:protobuf.BaseMsg)
+      BaseMsgOrBuilder {
+    // Use BaseMsg.newBuilder() to construct.
+    private BaseMsg(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private BaseReq() {
+    private BaseMsg() {
       deviceId_ = "";
       uidId_ = "";
+      errorCode_ = 0;
+      errorMsg_ = "";
       type_ = 0;
     }
 
@@ -380,7 +417,7 @@ public final class Base {
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
-    private BaseReq(
+    private BaseMsg(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -415,12 +452,24 @@ public final class Base {
             case 24: {
               int rawValue = input.readEnum();
 
-              type_ = rawValue;
+              errorCode_ = rawValue;
               break;
             }
             case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              errorMsg_ = s;
+              break;
+            }
+            case 40: {
+              int rawValue = input.readEnum();
+
+              type_ = rawValue;
+              break;
+            }
+            case 50: {
               protobuf.Message.ConnectMessage.Builder subBuilder = null;
-              if (dataCase_ == 4) {
+              if (dataCase_ == 6) {
                 subBuilder = ((protobuf.Message.ConnectMessage) data_).toBuilder();
               }
               data_ =
@@ -429,12 +478,12 @@ public final class Base {
                 subBuilder.mergeFrom((protobuf.Message.ConnectMessage) data_);
                 data_ = subBuilder.buildPartial();
               }
-              dataCase_ = 4;
+              dataCase_ = 6;
               break;
             }
-            case 42: {
+            case 58: {
               protobuf.Message.ChatMessage.Builder subBuilder = null;
-              if (dataCase_ == 5) {
+              if (dataCase_ == 7) {
                 subBuilder = ((protobuf.Message.ChatMessage) data_).toBuilder();
               }
               data_ =
@@ -443,12 +492,12 @@ public final class Base {
                 subBuilder.mergeFrom((protobuf.Message.ChatMessage) data_);
                 data_ = subBuilder.buildPartial();
               }
-              dataCase_ = 5;
+              dataCase_ = 7;
               break;
             }
-            case 50: {
+            case 66: {
               protobuf.Message.HeartBeat.Builder subBuilder = null;
-              if (dataCase_ == 6) {
+              if (dataCase_ == 8) {
                 subBuilder = ((protobuf.Message.HeartBeat) data_).toBuilder();
               }
               data_ =
@@ -457,7 +506,7 @@ public final class Base {
                 subBuilder.mergeFrom((protobuf.Message.HeartBeat) data_);
                 data_ = subBuilder.buildPartial();
               }
-              dataCase_ = 6;
+              dataCase_ = 8;
               break;
             }
           }
@@ -473,23 +522,23 @@ public final class Base {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return protobuf.Base.internal_static_protobuf_BaseReq_descriptor;
+      return protobuf.Base.internal_static_protobuf_BaseMsg_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return protobuf.Base.internal_static_protobuf_BaseReq_fieldAccessorTable
+      return protobuf.Base.internal_static_protobuf_BaseMsg_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              protobuf.Base.BaseReq.class, protobuf.Base.BaseReq.Builder.class);
+              protobuf.Base.BaseMsg.class, protobuf.Base.BaseMsg.Builder.class);
     }
 
     private int dataCase_ = 0;
     private java.lang.Object data_;
     public enum DataCase
         implements com.google.protobuf.Internal.EnumLite {
-      CONNECTMSG(4),
-      IMMSG(5),
-      HBMSG(6),
+      CONNECTMSG(6),
+      IMMSG(7),
+      HBMSG(8),
       DATA_NOT_SET(0);
       private final int value;
       private DataCase(int value) {
@@ -505,9 +554,9 @@ public final class Base {
 
       public static DataCase forNumber(int value) {
         switch (value) {
-          case 4: return CONNECTMSG;
-          case 5: return IMMSG;
-          case 6: return HBMSG;
+          case 6: return CONNECTMSG;
+          case 7: return IMMSG;
+          case 8: return HBMSG;
           case 0: return DATA_NOT_SET;
           default: return null;
         }
@@ -607,14 +656,80 @@ public final class Base {
       }
     }
 
-    public static final int TYPE_FIELD_NUMBER = 3;
+    public static final int ERRORCODE_FIELD_NUMBER = 3;
+    private int errorCode_;
+    /**
+     * <pre>
+     * 错误码
+     * </pre>
+     *
+     * <code>optional .protobuf.StatusCode errorCode = 3;</code>
+     */
+    public int getErrorCodeValue() {
+      return errorCode_;
+    }
+    /**
+     * <pre>
+     * 错误码
+     * </pre>
+     *
+     * <code>optional .protobuf.StatusCode errorCode = 3;</code>
+     */
+    public protobuf.Base.StatusCode getErrorCode() {
+      protobuf.Base.StatusCode result = protobuf.Base.StatusCode.valueOf(errorCode_);
+      return result == null ? protobuf.Base.StatusCode.UNRECOGNIZED : result;
+    }
+
+    public static final int ERRORMSG_FIELD_NUMBER = 4;
+    private volatile java.lang.Object errorMsg_;
+    /**
+     * <pre>
+     * 错误提示
+     * </pre>
+     *
+     * <code>optional string errorMsg = 4;</code>
+     */
+    public java.lang.String getErrorMsg() {
+      java.lang.Object ref = errorMsg_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        errorMsg_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 错误提示
+     * </pre>
+     *
+     * <code>optional string errorMsg = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getErrorMsgBytes() {
+      java.lang.Object ref = errorMsg_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        errorMsg_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TYPE_FIELD_NUMBER = 5;
     private int type_;
     /**
      * <pre>
      *消息类型
      * </pre>
      *
-     * <code>optional .protobuf.DataType type = 3;</code>
+     * <code>optional .protobuf.DataType type = 5;</code>
      */
     public int getTypeValue() {
       return type_;
@@ -624,68 +739,68 @@ public final class Base {
      *消息类型
      * </pre>
      *
-     * <code>optional .protobuf.DataType type = 3;</code>
+     * <code>optional .protobuf.DataType type = 5;</code>
      */
     public protobuf.Base.DataType getType() {
       protobuf.Base.DataType result = protobuf.Base.DataType.valueOf(type_);
       return result == null ? protobuf.Base.DataType.UNRECOGNIZED : result;
     }
 
-    public static final int CONNECTMSG_FIELD_NUMBER = 4;
+    public static final int CONNECTMSG_FIELD_NUMBER = 6;
     /**
-     * <code>optional .protobuf.ConnectMessage connectMsg = 4;</code>
+     * <code>optional .protobuf.ConnectMessage connectMsg = 6;</code>
      */
     public protobuf.Message.ConnectMessage getConnectMsg() {
-      if (dataCase_ == 4) {
+      if (dataCase_ == 6) {
          return (protobuf.Message.ConnectMessage) data_;
       }
       return protobuf.Message.ConnectMessage.getDefaultInstance();
     }
     /**
-     * <code>optional .protobuf.ConnectMessage connectMsg = 4;</code>
+     * <code>optional .protobuf.ConnectMessage connectMsg = 6;</code>
      */
     public protobuf.Message.ConnectMessageOrBuilder getConnectMsgOrBuilder() {
-      if (dataCase_ == 4) {
+      if (dataCase_ == 6) {
          return (protobuf.Message.ConnectMessage) data_;
       }
       return protobuf.Message.ConnectMessage.getDefaultInstance();
     }
 
-    public static final int IMMSG_FIELD_NUMBER = 5;
+    public static final int IMMSG_FIELD_NUMBER = 7;
     /**
-     * <code>optional .protobuf.ChatMessage imMsg = 5;</code>
+     * <code>optional .protobuf.ChatMessage imMsg = 7;</code>
      */
     public protobuf.Message.ChatMessage getImMsg() {
-      if (dataCase_ == 5) {
+      if (dataCase_ == 7) {
          return (protobuf.Message.ChatMessage) data_;
       }
       return protobuf.Message.ChatMessage.getDefaultInstance();
     }
     /**
-     * <code>optional .protobuf.ChatMessage imMsg = 5;</code>
+     * <code>optional .protobuf.ChatMessage imMsg = 7;</code>
      */
     public protobuf.Message.ChatMessageOrBuilder getImMsgOrBuilder() {
-      if (dataCase_ == 5) {
+      if (dataCase_ == 7) {
          return (protobuf.Message.ChatMessage) data_;
       }
       return protobuf.Message.ChatMessage.getDefaultInstance();
     }
 
-    public static final int HBMSG_FIELD_NUMBER = 6;
+    public static final int HBMSG_FIELD_NUMBER = 8;
     /**
-     * <code>optional .protobuf.HeartBeat hbMsg = 6;</code>
+     * <code>optional .protobuf.HeartBeat hbMsg = 8;</code>
      */
     public protobuf.Message.HeartBeat getHbMsg() {
-      if (dataCase_ == 6) {
+      if (dataCase_ == 8) {
          return (protobuf.Message.HeartBeat) data_;
       }
       return protobuf.Message.HeartBeat.getDefaultInstance();
     }
     /**
-     * <code>optional .protobuf.HeartBeat hbMsg = 6;</code>
+     * <code>optional .protobuf.HeartBeat hbMsg = 8;</code>
      */
     public protobuf.Message.HeartBeatOrBuilder getHbMsgOrBuilder() {
-      if (dataCase_ == 6) {
+      if (dataCase_ == 8) {
          return (protobuf.Message.HeartBeat) data_;
       }
       return protobuf.Message.HeartBeat.getDefaultInstance();
@@ -709,17 +824,23 @@ public final class Base {
       if (!getUidIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, uidId_);
       }
+      if (errorCode_ != protobuf.Base.StatusCode.STATUS_CODE_SUCCESS.getNumber()) {
+        output.writeEnum(3, errorCode_);
+      }
+      if (!getErrorMsgBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, errorMsg_);
+      }
       if (type_ != protobuf.Base.DataType.TYPE_CONNECT_MSG.getNumber()) {
-        output.writeEnum(3, type_);
-      }
-      if (dataCase_ == 4) {
-        output.writeMessage(4, (protobuf.Message.ConnectMessage) data_);
-      }
-      if (dataCase_ == 5) {
-        output.writeMessage(5, (protobuf.Message.ChatMessage) data_);
+        output.writeEnum(5, type_);
       }
       if (dataCase_ == 6) {
-        output.writeMessage(6, (protobuf.Message.HeartBeat) data_);
+        output.writeMessage(6, (protobuf.Message.ConnectMessage) data_);
+      }
+      if (dataCase_ == 7) {
+        output.writeMessage(7, (protobuf.Message.ChatMessage) data_);
+      }
+      if (dataCase_ == 8) {
+        output.writeMessage(8, (protobuf.Message.HeartBeat) data_);
       }
     }
 
@@ -734,21 +855,28 @@ public final class Base {
       if (!getUidIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, uidId_);
       }
+      if (errorCode_ != protobuf.Base.StatusCode.STATUS_CODE_SUCCESS.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(3, errorCode_);
+      }
+      if (!getErrorMsgBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, errorMsg_);
+      }
       if (type_ != protobuf.Base.DataType.TYPE_CONNECT_MSG.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(3, type_);
-      }
-      if (dataCase_ == 4) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, (protobuf.Message.ConnectMessage) data_);
-      }
-      if (dataCase_ == 5) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, (protobuf.Message.ChatMessage) data_);
+          .computeEnumSize(5, type_);
       }
       if (dataCase_ == 6) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(6, (protobuf.Message.HeartBeat) data_);
+          .computeMessageSize(6, (protobuf.Message.ConnectMessage) data_);
+      }
+      if (dataCase_ == 7) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, (protobuf.Message.ChatMessage) data_);
+      }
+      if (dataCase_ == 8) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, (protobuf.Message.HeartBeat) data_);
       }
       memoizedSize = size;
       return size;
@@ -760,30 +888,33 @@ public final class Base {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof protobuf.Base.BaseReq)) {
+      if (!(obj instanceof protobuf.Base.BaseMsg)) {
         return super.equals(obj);
       }
-      protobuf.Base.BaseReq other = (protobuf.Base.BaseReq) obj;
+      protobuf.Base.BaseMsg other = (protobuf.Base.BaseMsg) obj;
 
       boolean result = true;
       result = result && getDeviceId()
           .equals(other.getDeviceId());
       result = result && getUidId()
           .equals(other.getUidId());
+      result = result && errorCode_ == other.errorCode_;
+      result = result && getErrorMsg()
+          .equals(other.getErrorMsg());
       result = result && type_ == other.type_;
       result = result && getDataCase().equals(
           other.getDataCase());
       if (!result) return false;
       switch (dataCase_) {
-        case 4:
+        case 6:
           result = result && getConnectMsg()
               .equals(other.getConnectMsg());
           break;
-        case 5:
+        case 7:
           result = result && getImMsg()
               .equals(other.getImMsg());
           break;
-        case 6:
+        case 8:
           result = result && getHbMsg()
               .equals(other.getHbMsg());
           break;
@@ -804,18 +935,22 @@ public final class Base {
       hash = (53 * hash) + getDeviceId().hashCode();
       hash = (37 * hash) + UIDID_FIELD_NUMBER;
       hash = (53 * hash) + getUidId().hashCode();
+      hash = (37 * hash) + ERRORCODE_FIELD_NUMBER;
+      hash = (53 * hash) + errorCode_;
+      hash = (37 * hash) + ERRORMSG_FIELD_NUMBER;
+      hash = (53 * hash) + getErrorMsg().hashCode();
       hash = (37 * hash) + TYPE_FIELD_NUMBER;
       hash = (53 * hash) + type_;
       switch (dataCase_) {
-        case 4:
+        case 6:
           hash = (37 * hash) + CONNECTMSG_FIELD_NUMBER;
           hash = (53 * hash) + getConnectMsg().hashCode();
           break;
-        case 5:
+        case 7:
           hash = (37 * hash) + IMMSG_FIELD_NUMBER;
           hash = (53 * hash) + getImMsg().hashCode();
           break;
-        case 6:
+        case 8:
           hash = (37 * hash) + HBMSG_FIELD_NUMBER;
           hash = (53 * hash) + getHbMsg().hashCode();
           break;
@@ -827,58 +962,58 @@ public final class Base {
       return hash;
     }
 
-    public static protobuf.Base.BaseReq parseFrom(
+    public static protobuf.Base.BaseMsg parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static protobuf.Base.BaseReq parseFrom(
+    public static protobuf.Base.BaseMsg parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static protobuf.Base.BaseReq parseFrom(byte[] data)
+    public static protobuf.Base.BaseMsg parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static protobuf.Base.BaseReq parseFrom(
+    public static protobuf.Base.BaseMsg parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static protobuf.Base.BaseReq parseFrom(java.io.InputStream input)
+    public static protobuf.Base.BaseMsg parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static protobuf.Base.BaseReq parseFrom(
+    public static protobuf.Base.BaseMsg parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static protobuf.Base.BaseReq parseDelimitedFrom(java.io.InputStream input)
+    public static protobuf.Base.BaseMsg parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static protobuf.Base.BaseReq parseDelimitedFrom(
+    public static protobuf.Base.BaseMsg parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static protobuf.Base.BaseReq parseFrom(
+    public static protobuf.Base.BaseMsg parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static protobuf.Base.BaseReq parseFrom(
+    public static protobuf.Base.BaseMsg parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -890,7 +1025,7 @@ public final class Base {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(protobuf.Base.BaseReq prototype) {
+    public static Builder newBuilder(protobuf.Base.BaseMsg prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -905,25 +1040,25 @@ public final class Base {
       return builder;
     }
     /**
-     * Protobuf type {@code protobuf.BaseReq}
+     * Protobuf type {@code protobuf.BaseMsg}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:protobuf.BaseReq)
-        protobuf.Base.BaseReqOrBuilder {
+        // @@protoc_insertion_point(builder_implements:protobuf.BaseMsg)
+        protobuf.Base.BaseMsgOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return protobuf.Base.internal_static_protobuf_BaseReq_descriptor;
+        return protobuf.Base.internal_static_protobuf_BaseMsg_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return protobuf.Base.internal_static_protobuf_BaseReq_fieldAccessorTable
+        return protobuf.Base.internal_static_protobuf_BaseMsg_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                protobuf.Base.BaseReq.class, protobuf.Base.BaseReq.Builder.class);
+                protobuf.Base.BaseMsg.class, protobuf.Base.BaseMsg.Builder.class);
       }
 
-      // Construct using protobuf.Base.BaseReq.newBuilder()
+      // Construct using protobuf.Base.BaseMsg.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -944,6 +1079,10 @@ public final class Base {
 
         uidId_ = "";
 
+        errorCode_ = 0;
+
+        errorMsg_ = "";
+
         type_ = 0;
 
         dataCase_ = 0;
@@ -953,41 +1092,43 @@ public final class Base {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return protobuf.Base.internal_static_protobuf_BaseReq_descriptor;
+        return protobuf.Base.internal_static_protobuf_BaseMsg_descriptor;
       }
 
-      public protobuf.Base.BaseReq getDefaultInstanceForType() {
-        return protobuf.Base.BaseReq.getDefaultInstance();
+      public protobuf.Base.BaseMsg getDefaultInstanceForType() {
+        return protobuf.Base.BaseMsg.getDefaultInstance();
       }
 
-      public protobuf.Base.BaseReq build() {
-        protobuf.Base.BaseReq result = buildPartial();
+      public protobuf.Base.BaseMsg build() {
+        protobuf.Base.BaseMsg result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public protobuf.Base.BaseReq buildPartial() {
-        protobuf.Base.BaseReq result = new protobuf.Base.BaseReq(this);
+      public protobuf.Base.BaseMsg buildPartial() {
+        protobuf.Base.BaseMsg result = new protobuf.Base.BaseMsg(this);
         result.deviceId_ = deviceId_;
         result.uidId_ = uidId_;
+        result.errorCode_ = errorCode_;
+        result.errorMsg_ = errorMsg_;
         result.type_ = type_;
-        if (dataCase_ == 4) {
+        if (dataCase_ == 6) {
           if (connectMsgBuilder_ == null) {
             result.data_ = data_;
           } else {
             result.data_ = connectMsgBuilder_.build();
           }
         }
-        if (dataCase_ == 5) {
+        if (dataCase_ == 7) {
           if (imMsgBuilder_ == null) {
             result.data_ = data_;
           } else {
             result.data_ = imMsgBuilder_.build();
           }
         }
-        if (dataCase_ == 6) {
+        if (dataCase_ == 8) {
           if (hbMsgBuilder_ == null) {
             result.data_ = data_;
           } else {
@@ -1026,22 +1167,29 @@ public final class Base {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof protobuf.Base.BaseReq) {
-          return mergeFrom((protobuf.Base.BaseReq)other);
+        if (other instanceof protobuf.Base.BaseMsg) {
+          return mergeFrom((protobuf.Base.BaseMsg)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(protobuf.Base.BaseReq other) {
-        if (other == protobuf.Base.BaseReq.getDefaultInstance()) return this;
+      public Builder mergeFrom(protobuf.Base.BaseMsg other) {
+        if (other == protobuf.Base.BaseMsg.getDefaultInstance()) return this;
         if (!other.getDeviceId().isEmpty()) {
           deviceId_ = other.deviceId_;
           onChanged();
         }
         if (!other.getUidId().isEmpty()) {
           uidId_ = other.uidId_;
+          onChanged();
+        }
+        if (other.errorCode_ != 0) {
+          setErrorCodeValue(other.getErrorCodeValue());
+        }
+        if (!other.getErrorMsg().isEmpty()) {
+          errorMsg_ = other.errorMsg_;
           onChanged();
         }
         if (other.type_ != 0) {
@@ -1076,11 +1224,11 @@ public final class Base {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        protobuf.Base.BaseReq parsedMessage = null;
+        protobuf.Base.BaseMsg parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (protobuf.Base.BaseReq) e.getUnfinishedMessage();
+          parsedMessage = (protobuf.Base.BaseMsg) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1283,1051 +1431,23 @@ public final class Base {
         return this;
       }
 
-      private int type_ = 0;
-      /**
-       * <pre>
-       *消息类型
-       * </pre>
-       *
-       * <code>optional .protobuf.DataType type = 3;</code>
-       */
-      public int getTypeValue() {
-        return type_;
-      }
-      /**
-       * <pre>
-       *消息类型
-       * </pre>
-       *
-       * <code>optional .protobuf.DataType type = 3;</code>
-       */
-      public Builder setTypeValue(int value) {
-        type_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *消息类型
-       * </pre>
-       *
-       * <code>optional .protobuf.DataType type = 3;</code>
-       */
-      public protobuf.Base.DataType getType() {
-        protobuf.Base.DataType result = protobuf.Base.DataType.valueOf(type_);
-        return result == null ? protobuf.Base.DataType.UNRECOGNIZED : result;
-      }
-      /**
-       * <pre>
-       *消息类型
-       * </pre>
-       *
-       * <code>optional .protobuf.DataType type = 3;</code>
-       */
-      public Builder setType(protobuf.Base.DataType value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        
-        type_ = value.getNumber();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *消息类型
-       * </pre>
-       *
-       * <code>optional .protobuf.DataType type = 3;</code>
-       */
-      public Builder clearType() {
-        
-        type_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.SingleFieldBuilderV3<
-          protobuf.Message.ConnectMessage, protobuf.Message.ConnectMessage.Builder, protobuf.Message.ConnectMessageOrBuilder> connectMsgBuilder_;
-      /**
-       * <code>optional .protobuf.ConnectMessage connectMsg = 4;</code>
-       */
-      public protobuf.Message.ConnectMessage getConnectMsg() {
-        if (connectMsgBuilder_ == null) {
-          if (dataCase_ == 4) {
-            return (protobuf.Message.ConnectMessage) data_;
-          }
-          return protobuf.Message.ConnectMessage.getDefaultInstance();
-        } else {
-          if (dataCase_ == 4) {
-            return connectMsgBuilder_.getMessage();
-          }
-          return protobuf.Message.ConnectMessage.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>optional .protobuf.ConnectMessage connectMsg = 4;</code>
-       */
-      public Builder setConnectMsg(protobuf.Message.ConnectMessage value) {
-        if (connectMsgBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          data_ = value;
-          onChanged();
-        } else {
-          connectMsgBuilder_.setMessage(value);
-        }
-        dataCase_ = 4;
-        return this;
-      }
-      /**
-       * <code>optional .protobuf.ConnectMessage connectMsg = 4;</code>
-       */
-      public Builder setConnectMsg(
-          protobuf.Message.ConnectMessage.Builder builderForValue) {
-        if (connectMsgBuilder_ == null) {
-          data_ = builderForValue.build();
-          onChanged();
-        } else {
-          connectMsgBuilder_.setMessage(builderForValue.build());
-        }
-        dataCase_ = 4;
-        return this;
-      }
-      /**
-       * <code>optional .protobuf.ConnectMessage connectMsg = 4;</code>
-       */
-      public Builder mergeConnectMsg(protobuf.Message.ConnectMessage value) {
-        if (connectMsgBuilder_ == null) {
-          if (dataCase_ == 4 &&
-              data_ != protobuf.Message.ConnectMessage.getDefaultInstance()) {
-            data_ = protobuf.Message.ConnectMessage.newBuilder((protobuf.Message.ConnectMessage) data_)
-                .mergeFrom(value).buildPartial();
-          } else {
-            data_ = value;
-          }
-          onChanged();
-        } else {
-          if (dataCase_ == 4) {
-            connectMsgBuilder_.mergeFrom(value);
-          }
-          connectMsgBuilder_.setMessage(value);
-        }
-        dataCase_ = 4;
-        return this;
-      }
-      /**
-       * <code>optional .protobuf.ConnectMessage connectMsg = 4;</code>
-       */
-      public Builder clearConnectMsg() {
-        if (connectMsgBuilder_ == null) {
-          if (dataCase_ == 4) {
-            dataCase_ = 0;
-            data_ = null;
-            onChanged();
-          }
-        } else {
-          if (dataCase_ == 4) {
-            dataCase_ = 0;
-            data_ = null;
-          }
-          connectMsgBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>optional .protobuf.ConnectMessage connectMsg = 4;</code>
-       */
-      public protobuf.Message.ConnectMessage.Builder getConnectMsgBuilder() {
-        return getConnectMsgFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>optional .protobuf.ConnectMessage connectMsg = 4;</code>
-       */
-      public protobuf.Message.ConnectMessageOrBuilder getConnectMsgOrBuilder() {
-        if ((dataCase_ == 4) && (connectMsgBuilder_ != null)) {
-          return connectMsgBuilder_.getMessageOrBuilder();
-        } else {
-          if (dataCase_ == 4) {
-            return (protobuf.Message.ConnectMessage) data_;
-          }
-          return protobuf.Message.ConnectMessage.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>optional .protobuf.ConnectMessage connectMsg = 4;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          protobuf.Message.ConnectMessage, protobuf.Message.ConnectMessage.Builder, protobuf.Message.ConnectMessageOrBuilder> 
-          getConnectMsgFieldBuilder() {
-        if (connectMsgBuilder_ == null) {
-          if (!(dataCase_ == 4)) {
-            data_ = protobuf.Message.ConnectMessage.getDefaultInstance();
-          }
-          connectMsgBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              protobuf.Message.ConnectMessage, protobuf.Message.ConnectMessage.Builder, protobuf.Message.ConnectMessageOrBuilder>(
-                  (protobuf.Message.ConnectMessage) data_,
-                  getParentForChildren(),
-                  isClean());
-          data_ = null;
-        }
-        dataCase_ = 4;
-        onChanged();;
-        return connectMsgBuilder_;
-      }
-
-      private com.google.protobuf.SingleFieldBuilderV3<
-          protobuf.Message.ChatMessage, protobuf.Message.ChatMessage.Builder, protobuf.Message.ChatMessageOrBuilder> imMsgBuilder_;
-      /**
-       * <code>optional .protobuf.ChatMessage imMsg = 5;</code>
-       */
-      public protobuf.Message.ChatMessage getImMsg() {
-        if (imMsgBuilder_ == null) {
-          if (dataCase_ == 5) {
-            return (protobuf.Message.ChatMessage) data_;
-          }
-          return protobuf.Message.ChatMessage.getDefaultInstance();
-        } else {
-          if (dataCase_ == 5) {
-            return imMsgBuilder_.getMessage();
-          }
-          return protobuf.Message.ChatMessage.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>optional .protobuf.ChatMessage imMsg = 5;</code>
-       */
-      public Builder setImMsg(protobuf.Message.ChatMessage value) {
-        if (imMsgBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          data_ = value;
-          onChanged();
-        } else {
-          imMsgBuilder_.setMessage(value);
-        }
-        dataCase_ = 5;
-        return this;
-      }
-      /**
-       * <code>optional .protobuf.ChatMessage imMsg = 5;</code>
-       */
-      public Builder setImMsg(
-          protobuf.Message.ChatMessage.Builder builderForValue) {
-        if (imMsgBuilder_ == null) {
-          data_ = builderForValue.build();
-          onChanged();
-        } else {
-          imMsgBuilder_.setMessage(builderForValue.build());
-        }
-        dataCase_ = 5;
-        return this;
-      }
-      /**
-       * <code>optional .protobuf.ChatMessage imMsg = 5;</code>
-       */
-      public Builder mergeImMsg(protobuf.Message.ChatMessage value) {
-        if (imMsgBuilder_ == null) {
-          if (dataCase_ == 5 &&
-              data_ != protobuf.Message.ChatMessage.getDefaultInstance()) {
-            data_ = protobuf.Message.ChatMessage.newBuilder((protobuf.Message.ChatMessage) data_)
-                .mergeFrom(value).buildPartial();
-          } else {
-            data_ = value;
-          }
-          onChanged();
-        } else {
-          if (dataCase_ == 5) {
-            imMsgBuilder_.mergeFrom(value);
-          }
-          imMsgBuilder_.setMessage(value);
-        }
-        dataCase_ = 5;
-        return this;
-      }
-      /**
-       * <code>optional .protobuf.ChatMessage imMsg = 5;</code>
-       */
-      public Builder clearImMsg() {
-        if (imMsgBuilder_ == null) {
-          if (dataCase_ == 5) {
-            dataCase_ = 0;
-            data_ = null;
-            onChanged();
-          }
-        } else {
-          if (dataCase_ == 5) {
-            dataCase_ = 0;
-            data_ = null;
-          }
-          imMsgBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>optional .protobuf.ChatMessage imMsg = 5;</code>
-       */
-      public protobuf.Message.ChatMessage.Builder getImMsgBuilder() {
-        return getImMsgFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>optional .protobuf.ChatMessage imMsg = 5;</code>
-       */
-      public protobuf.Message.ChatMessageOrBuilder getImMsgOrBuilder() {
-        if ((dataCase_ == 5) && (imMsgBuilder_ != null)) {
-          return imMsgBuilder_.getMessageOrBuilder();
-        } else {
-          if (dataCase_ == 5) {
-            return (protobuf.Message.ChatMessage) data_;
-          }
-          return protobuf.Message.ChatMessage.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>optional .protobuf.ChatMessage imMsg = 5;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          protobuf.Message.ChatMessage, protobuf.Message.ChatMessage.Builder, protobuf.Message.ChatMessageOrBuilder> 
-          getImMsgFieldBuilder() {
-        if (imMsgBuilder_ == null) {
-          if (!(dataCase_ == 5)) {
-            data_ = protobuf.Message.ChatMessage.getDefaultInstance();
-          }
-          imMsgBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              protobuf.Message.ChatMessage, protobuf.Message.ChatMessage.Builder, protobuf.Message.ChatMessageOrBuilder>(
-                  (protobuf.Message.ChatMessage) data_,
-                  getParentForChildren(),
-                  isClean());
-          data_ = null;
-        }
-        dataCase_ = 5;
-        onChanged();;
-        return imMsgBuilder_;
-      }
-
-      private com.google.protobuf.SingleFieldBuilderV3<
-          protobuf.Message.HeartBeat, protobuf.Message.HeartBeat.Builder, protobuf.Message.HeartBeatOrBuilder> hbMsgBuilder_;
-      /**
-       * <code>optional .protobuf.HeartBeat hbMsg = 6;</code>
-       */
-      public protobuf.Message.HeartBeat getHbMsg() {
-        if (hbMsgBuilder_ == null) {
-          if (dataCase_ == 6) {
-            return (protobuf.Message.HeartBeat) data_;
-          }
-          return protobuf.Message.HeartBeat.getDefaultInstance();
-        } else {
-          if (dataCase_ == 6) {
-            return hbMsgBuilder_.getMessage();
-          }
-          return protobuf.Message.HeartBeat.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>optional .protobuf.HeartBeat hbMsg = 6;</code>
-       */
-      public Builder setHbMsg(protobuf.Message.HeartBeat value) {
-        if (hbMsgBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          data_ = value;
-          onChanged();
-        } else {
-          hbMsgBuilder_.setMessage(value);
-        }
-        dataCase_ = 6;
-        return this;
-      }
-      /**
-       * <code>optional .protobuf.HeartBeat hbMsg = 6;</code>
-       */
-      public Builder setHbMsg(
-          protobuf.Message.HeartBeat.Builder builderForValue) {
-        if (hbMsgBuilder_ == null) {
-          data_ = builderForValue.build();
-          onChanged();
-        } else {
-          hbMsgBuilder_.setMessage(builderForValue.build());
-        }
-        dataCase_ = 6;
-        return this;
-      }
-      /**
-       * <code>optional .protobuf.HeartBeat hbMsg = 6;</code>
-       */
-      public Builder mergeHbMsg(protobuf.Message.HeartBeat value) {
-        if (hbMsgBuilder_ == null) {
-          if (dataCase_ == 6 &&
-              data_ != protobuf.Message.HeartBeat.getDefaultInstance()) {
-            data_ = protobuf.Message.HeartBeat.newBuilder((protobuf.Message.HeartBeat) data_)
-                .mergeFrom(value).buildPartial();
-          } else {
-            data_ = value;
-          }
-          onChanged();
-        } else {
-          if (dataCase_ == 6) {
-            hbMsgBuilder_.mergeFrom(value);
-          }
-          hbMsgBuilder_.setMessage(value);
-        }
-        dataCase_ = 6;
-        return this;
-      }
-      /**
-       * <code>optional .protobuf.HeartBeat hbMsg = 6;</code>
-       */
-      public Builder clearHbMsg() {
-        if (hbMsgBuilder_ == null) {
-          if (dataCase_ == 6) {
-            dataCase_ = 0;
-            data_ = null;
-            onChanged();
-          }
-        } else {
-          if (dataCase_ == 6) {
-            dataCase_ = 0;
-            data_ = null;
-          }
-          hbMsgBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>optional .protobuf.HeartBeat hbMsg = 6;</code>
-       */
-      public protobuf.Message.HeartBeat.Builder getHbMsgBuilder() {
-        return getHbMsgFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>optional .protobuf.HeartBeat hbMsg = 6;</code>
-       */
-      public protobuf.Message.HeartBeatOrBuilder getHbMsgOrBuilder() {
-        if ((dataCase_ == 6) && (hbMsgBuilder_ != null)) {
-          return hbMsgBuilder_.getMessageOrBuilder();
-        } else {
-          if (dataCase_ == 6) {
-            return (protobuf.Message.HeartBeat) data_;
-          }
-          return protobuf.Message.HeartBeat.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>optional .protobuf.HeartBeat hbMsg = 6;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          protobuf.Message.HeartBeat, protobuf.Message.HeartBeat.Builder, protobuf.Message.HeartBeatOrBuilder> 
-          getHbMsgFieldBuilder() {
-        if (hbMsgBuilder_ == null) {
-          if (!(dataCase_ == 6)) {
-            data_ = protobuf.Message.HeartBeat.getDefaultInstance();
-          }
-          hbMsgBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              protobuf.Message.HeartBeat, protobuf.Message.HeartBeat.Builder, protobuf.Message.HeartBeatOrBuilder>(
-                  (protobuf.Message.HeartBeat) data_,
-                  getParentForChildren(),
-                  isClean());
-          data_ = null;
-        }
-        dataCase_ = 6;
-        onChanged();;
-        return hbMsgBuilder_;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:protobuf.BaseReq)
-    }
-
-    // @@protoc_insertion_point(class_scope:protobuf.BaseReq)
-    private static final protobuf.Base.BaseReq DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new protobuf.Base.BaseReq();
-    }
-
-    public static protobuf.Base.BaseReq getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<BaseReq>
-        PARSER = new com.google.protobuf.AbstractParser<BaseReq>() {
-      public BaseReq parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new BaseReq(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<BaseReq> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<BaseReq> getParserForType() {
-      return PARSER;
-    }
-
-    public protobuf.Base.BaseReq getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface BaseRspOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:protobuf.BaseRsp)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>optional .protobuf.StatusCode errorCode = 1;</code>
-     */
-    int getErrorCodeValue();
-    /**
-     * <code>optional .protobuf.StatusCode errorCode = 1;</code>
-     */
-    protobuf.Base.StatusCode getErrorCode();
-
-    /**
-     * <pre>
-     *错误数据
-     * </pre>
-     *
-     * <code>optional string errorMsg = 2;</code>
-     */
-    java.lang.String getErrorMsg();
-    /**
-     * <pre>
-     *错误数据
-     * </pre>
-     *
-     * <code>optional string errorMsg = 2;</code>
-     */
-    com.google.protobuf.ByteString
-        getErrorMsgBytes();
-
-    /**
-     * <pre>
-     *数据
-     * </pre>
-     *
-     * <code>optional string data = 3;</code>
-     */
-    java.lang.String getData();
-    /**
-     * <pre>
-     *数据
-     * </pre>
-     *
-     * <code>optional string data = 3;</code>
-     */
-    com.google.protobuf.ByteString
-        getDataBytes();
-  }
-  /**
-   * Protobuf type {@code protobuf.BaseRsp}
-   */
-  public  static final class BaseRsp extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:protobuf.BaseRsp)
-      BaseRspOrBuilder {
-    // Use BaseRsp.newBuilder() to construct.
-    private BaseRsp(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private BaseRsp() {
-      errorCode_ = 0;
-      errorMsg_ = "";
-      data_ = "";
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
-    }
-    private BaseRsp(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      int mutable_bitField0_ = 0;
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 8: {
-              int rawValue = input.readEnum();
-
-              errorCode_ = rawValue;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              errorMsg_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              data_ = s;
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return protobuf.Base.internal_static_protobuf_BaseRsp_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return protobuf.Base.internal_static_protobuf_BaseRsp_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              protobuf.Base.BaseRsp.class, protobuf.Base.BaseRsp.Builder.class);
-    }
-
-    public static final int ERRORCODE_FIELD_NUMBER = 1;
-    private int errorCode_;
-    /**
-     * <code>optional .protobuf.StatusCode errorCode = 1;</code>
-     */
-    public int getErrorCodeValue() {
-      return errorCode_;
-    }
-    /**
-     * <code>optional .protobuf.StatusCode errorCode = 1;</code>
-     */
-    public protobuf.Base.StatusCode getErrorCode() {
-      protobuf.Base.StatusCode result = protobuf.Base.StatusCode.valueOf(errorCode_);
-      return result == null ? protobuf.Base.StatusCode.UNRECOGNIZED : result;
-    }
-
-    public static final int ERRORMSG_FIELD_NUMBER = 2;
-    private volatile java.lang.Object errorMsg_;
-    /**
-     * <pre>
-     *错误数据
-     * </pre>
-     *
-     * <code>optional string errorMsg = 2;</code>
-     */
-    public java.lang.String getErrorMsg() {
-      java.lang.Object ref = errorMsg_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        errorMsg_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     *错误数据
-     * </pre>
-     *
-     * <code>optional string errorMsg = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getErrorMsgBytes() {
-      java.lang.Object ref = errorMsg_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        errorMsg_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int DATA_FIELD_NUMBER = 3;
-    private volatile java.lang.Object data_;
-    /**
-     * <pre>
-     *数据
-     * </pre>
-     *
-     * <code>optional string data = 3;</code>
-     */
-    public java.lang.String getData() {
-      java.lang.Object ref = data_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        data_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     *数据
-     * </pre>
-     *
-     * <code>optional string data = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getDataBytes() {
-      java.lang.Object ref = data_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        data_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (errorCode_ != protobuf.Base.StatusCode.STATUS_CODE_SUCCESS.getNumber()) {
-        output.writeEnum(1, errorCode_);
-      }
-      if (!getErrorMsgBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, errorMsg_);
-      }
-      if (!getDataBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, data_);
-      }
-    }
-
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (errorCode_ != protobuf.Base.StatusCode.STATUS_CODE_SUCCESS.getNumber()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, errorCode_);
-      }
-      if (!getErrorMsgBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, errorMsg_);
-      }
-      if (!getDataBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, data_);
-      }
-      memoizedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof protobuf.Base.BaseRsp)) {
-        return super.equals(obj);
-      }
-      protobuf.Base.BaseRsp other = (protobuf.Base.BaseRsp) obj;
-
-      boolean result = true;
-      result = result && errorCode_ == other.errorCode_;
-      result = result && getErrorMsg()
-          .equals(other.getErrorMsg());
-      result = result && getData()
-          .equals(other.getData());
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
-      hash = (37 * hash) + ERRORCODE_FIELD_NUMBER;
-      hash = (53 * hash) + errorCode_;
-      hash = (37 * hash) + ERRORMSG_FIELD_NUMBER;
-      hash = (53 * hash) + getErrorMsg().hashCode();
-      hash = (37 * hash) + DATA_FIELD_NUMBER;
-      hash = (53 * hash) + getData().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static protobuf.Base.BaseRsp parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static protobuf.Base.BaseRsp parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static protobuf.Base.BaseRsp parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static protobuf.Base.BaseRsp parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static protobuf.Base.BaseRsp parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static protobuf.Base.BaseRsp parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static protobuf.Base.BaseRsp parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static protobuf.Base.BaseRsp parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static protobuf.Base.BaseRsp parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static protobuf.Base.BaseRsp parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(protobuf.Base.BaseRsp prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code protobuf.BaseRsp}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:protobuf.BaseRsp)
-        protobuf.Base.BaseRspOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return protobuf.Base.internal_static_protobuf_BaseRsp_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return protobuf.Base.internal_static_protobuf_BaseRsp_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                protobuf.Base.BaseRsp.class, protobuf.Base.BaseRsp.Builder.class);
-      }
-
-      // Construct using protobuf.Base.BaseRsp.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      public Builder clear() {
-        super.clear();
-        errorCode_ = 0;
-
-        errorMsg_ = "";
-
-        data_ = "";
-
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return protobuf.Base.internal_static_protobuf_BaseRsp_descriptor;
-      }
-
-      public protobuf.Base.BaseRsp getDefaultInstanceForType() {
-        return protobuf.Base.BaseRsp.getDefaultInstance();
-      }
-
-      public protobuf.Base.BaseRsp build() {
-        protobuf.Base.BaseRsp result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public protobuf.Base.BaseRsp buildPartial() {
-        protobuf.Base.BaseRsp result = new protobuf.Base.BaseRsp(this);
-        result.errorCode_ = errorCode_;
-        result.errorMsg_ = errorMsg_;
-        result.data_ = data_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof protobuf.Base.BaseRsp) {
-          return mergeFrom((protobuf.Base.BaseRsp)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(protobuf.Base.BaseRsp other) {
-        if (other == protobuf.Base.BaseRsp.getDefaultInstance()) return this;
-        if (other.errorCode_ != 0) {
-          setErrorCodeValue(other.getErrorCodeValue());
-        }
-        if (!other.getErrorMsg().isEmpty()) {
-          errorMsg_ = other.errorMsg_;
-          onChanged();
-        }
-        if (!other.getData().isEmpty()) {
-          data_ = other.data_;
-          onChanged();
-        }
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        protobuf.Base.BaseRsp parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (protobuf.Base.BaseRsp) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
       private int errorCode_ = 0;
       /**
-       * <code>optional .protobuf.StatusCode errorCode = 1;</code>
+       * <pre>
+       * 错误码
+       * </pre>
+       *
+       * <code>optional .protobuf.StatusCode errorCode = 3;</code>
        */
       public int getErrorCodeValue() {
         return errorCode_;
       }
       /**
-       * <code>optional .protobuf.StatusCode errorCode = 1;</code>
+       * <pre>
+       * 错误码
+       * </pre>
+       *
+       * <code>optional .protobuf.StatusCode errorCode = 3;</code>
        */
       public Builder setErrorCodeValue(int value) {
         errorCode_ = value;
@@ -2335,14 +1455,22 @@ public final class Base {
         return this;
       }
       /**
-       * <code>optional .protobuf.StatusCode errorCode = 1;</code>
+       * <pre>
+       * 错误码
+       * </pre>
+       *
+       * <code>optional .protobuf.StatusCode errorCode = 3;</code>
        */
       public protobuf.Base.StatusCode getErrorCode() {
         protobuf.Base.StatusCode result = protobuf.Base.StatusCode.valueOf(errorCode_);
         return result == null ? protobuf.Base.StatusCode.UNRECOGNIZED : result;
       }
       /**
-       * <code>optional .protobuf.StatusCode errorCode = 1;</code>
+       * <pre>
+       * 错误码
+       * </pre>
+       *
+       * <code>optional .protobuf.StatusCode errorCode = 3;</code>
        */
       public Builder setErrorCode(protobuf.Base.StatusCode value) {
         if (value == null) {
@@ -2354,7 +1482,11 @@ public final class Base {
         return this;
       }
       /**
-       * <code>optional .protobuf.StatusCode errorCode = 1;</code>
+       * <pre>
+       * 错误码
+       * </pre>
+       *
+       * <code>optional .protobuf.StatusCode errorCode = 3;</code>
        */
       public Builder clearErrorCode() {
         
@@ -2366,10 +1498,10 @@ public final class Base {
       private java.lang.Object errorMsg_ = "";
       /**
        * <pre>
-       *错误数据
+       * 错误提示
        * </pre>
        *
-       * <code>optional string errorMsg = 2;</code>
+       * <code>optional string errorMsg = 4;</code>
        */
       public java.lang.String getErrorMsg() {
         java.lang.Object ref = errorMsg_;
@@ -2385,10 +1517,10 @@ public final class Base {
       }
       /**
        * <pre>
-       *错误数据
+       * 错误提示
        * </pre>
        *
-       * <code>optional string errorMsg = 2;</code>
+       * <code>optional string errorMsg = 4;</code>
        */
       public com.google.protobuf.ByteString
           getErrorMsgBytes() {
@@ -2405,10 +1537,10 @@ public final class Base {
       }
       /**
        * <pre>
-       *错误数据
+       * 错误提示
        * </pre>
        *
-       * <code>optional string errorMsg = 2;</code>
+       * <code>optional string errorMsg = 4;</code>
        */
       public Builder setErrorMsg(
           java.lang.String value) {
@@ -2422,10 +1554,10 @@ public final class Base {
       }
       /**
        * <pre>
-       *错误数据
+       * 错误提示
        * </pre>
        *
-       * <code>optional string errorMsg = 2;</code>
+       * <code>optional string errorMsg = 4;</code>
        */
       public Builder clearErrorMsg() {
         
@@ -2435,10 +1567,10 @@ public final class Base {
       }
       /**
        * <pre>
-       *错误数据
+       * 错误提示
        * </pre>
        *
-       * <code>optional string errorMsg = 2;</code>
+       * <code>optional string errorMsg = 4;</code>
        */
       public Builder setErrorMsgBytes(
           com.google.protobuf.ByteString value) {
@@ -2452,93 +1584,458 @@ public final class Base {
         return this;
       }
 
-      private java.lang.Object data_ = "";
+      private int type_ = 0;
       /**
        * <pre>
-       *数据
+       *消息类型
        * </pre>
        *
-       * <code>optional string data = 3;</code>
+       * <code>optional .protobuf.DataType type = 5;</code>
        */
-      public java.lang.String getData() {
-        java.lang.Object ref = data_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          data_ = s;
-          return s;
+      public int getTypeValue() {
+        return type_;
+      }
+      /**
+       * <pre>
+       *消息类型
+       * </pre>
+       *
+       * <code>optional .protobuf.DataType type = 5;</code>
+       */
+      public Builder setTypeValue(int value) {
+        type_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *消息类型
+       * </pre>
+       *
+       * <code>optional .protobuf.DataType type = 5;</code>
+       */
+      public protobuf.Base.DataType getType() {
+        protobuf.Base.DataType result = protobuf.Base.DataType.valueOf(type_);
+        return result == null ? protobuf.Base.DataType.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       *消息类型
+       * </pre>
+       *
+       * <code>optional .protobuf.DataType type = 5;</code>
+       */
+      public Builder setType(protobuf.Base.DataType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *消息类型
+       * </pre>
+       *
+       * <code>optional .protobuf.DataType type = 5;</code>
+       */
+      public Builder clearType() {
+        
+        type_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          protobuf.Message.ConnectMessage, protobuf.Message.ConnectMessage.Builder, protobuf.Message.ConnectMessageOrBuilder> connectMsgBuilder_;
+      /**
+       * <code>optional .protobuf.ConnectMessage connectMsg = 6;</code>
+       */
+      public protobuf.Message.ConnectMessage getConnectMsg() {
+        if (connectMsgBuilder_ == null) {
+          if (dataCase_ == 6) {
+            return (protobuf.Message.ConnectMessage) data_;
+          }
+          return protobuf.Message.ConnectMessage.getDefaultInstance();
         } else {
-          return (java.lang.String) ref;
+          if (dataCase_ == 6) {
+            return connectMsgBuilder_.getMessage();
+          }
+          return protobuf.Message.ConnectMessage.getDefaultInstance();
         }
       }
       /**
-       * <pre>
-       *数据
-       * </pre>
-       *
-       * <code>optional string data = 3;</code>
+       * <code>optional .protobuf.ConnectMessage connectMsg = 6;</code>
        */
-      public com.google.protobuf.ByteString
-          getDataBytes() {
-        java.lang.Object ref = data_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          data_ = b;
-          return b;
+      public Builder setConnectMsg(protobuf.Message.ConnectMessage value) {
+        if (connectMsgBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          data_ = value;
+          onChanged();
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          connectMsgBuilder_.setMessage(value);
+        }
+        dataCase_ = 6;
+        return this;
+      }
+      /**
+       * <code>optional .protobuf.ConnectMessage connectMsg = 6;</code>
+       */
+      public Builder setConnectMsg(
+          protobuf.Message.ConnectMessage.Builder builderForValue) {
+        if (connectMsgBuilder_ == null) {
+          data_ = builderForValue.build();
+          onChanged();
+        } else {
+          connectMsgBuilder_.setMessage(builderForValue.build());
+        }
+        dataCase_ = 6;
+        return this;
+      }
+      /**
+       * <code>optional .protobuf.ConnectMessage connectMsg = 6;</code>
+       */
+      public Builder mergeConnectMsg(protobuf.Message.ConnectMessage value) {
+        if (connectMsgBuilder_ == null) {
+          if (dataCase_ == 6 &&
+              data_ != protobuf.Message.ConnectMessage.getDefaultInstance()) {
+            data_ = protobuf.Message.ConnectMessage.newBuilder((protobuf.Message.ConnectMessage) data_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            data_ = value;
+          }
+          onChanged();
+        } else {
+          if (dataCase_ == 6) {
+            connectMsgBuilder_.mergeFrom(value);
+          }
+          connectMsgBuilder_.setMessage(value);
+        }
+        dataCase_ = 6;
+        return this;
+      }
+      /**
+       * <code>optional .protobuf.ConnectMessage connectMsg = 6;</code>
+       */
+      public Builder clearConnectMsg() {
+        if (connectMsgBuilder_ == null) {
+          if (dataCase_ == 6) {
+            dataCase_ = 0;
+            data_ = null;
+            onChanged();
+          }
+        } else {
+          if (dataCase_ == 6) {
+            dataCase_ = 0;
+            data_ = null;
+          }
+          connectMsgBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>optional .protobuf.ConnectMessage connectMsg = 6;</code>
+       */
+      public protobuf.Message.ConnectMessage.Builder getConnectMsgBuilder() {
+        return getConnectMsgFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .protobuf.ConnectMessage connectMsg = 6;</code>
+       */
+      public protobuf.Message.ConnectMessageOrBuilder getConnectMsgOrBuilder() {
+        if ((dataCase_ == 6) && (connectMsgBuilder_ != null)) {
+          return connectMsgBuilder_.getMessageOrBuilder();
+        } else {
+          if (dataCase_ == 6) {
+            return (protobuf.Message.ConnectMessage) data_;
+          }
+          return protobuf.Message.ConnectMessage.getDefaultInstance();
         }
       }
       /**
-       * <pre>
-       *数据
-       * </pre>
-       *
-       * <code>optional string data = 3;</code>
+       * <code>optional .protobuf.ConnectMessage connectMsg = 6;</code>
        */
-      public Builder setData(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        data_ = value;
-        onChanged();
+      private com.google.protobuf.SingleFieldBuilderV3<
+          protobuf.Message.ConnectMessage, protobuf.Message.ConnectMessage.Builder, protobuf.Message.ConnectMessageOrBuilder> 
+          getConnectMsgFieldBuilder() {
+        if (connectMsgBuilder_ == null) {
+          if (!(dataCase_ == 6)) {
+            data_ = protobuf.Message.ConnectMessage.getDefaultInstance();
+          }
+          connectMsgBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              protobuf.Message.ConnectMessage, protobuf.Message.ConnectMessage.Builder, protobuf.Message.ConnectMessageOrBuilder>(
+                  (protobuf.Message.ConnectMessage) data_,
+                  getParentForChildren(),
+                  isClean());
+          data_ = null;
+        }
+        dataCase_ = 6;
+        onChanged();;
+        return connectMsgBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          protobuf.Message.ChatMessage, protobuf.Message.ChatMessage.Builder, protobuf.Message.ChatMessageOrBuilder> imMsgBuilder_;
+      /**
+       * <code>optional .protobuf.ChatMessage imMsg = 7;</code>
+       */
+      public protobuf.Message.ChatMessage getImMsg() {
+        if (imMsgBuilder_ == null) {
+          if (dataCase_ == 7) {
+            return (protobuf.Message.ChatMessage) data_;
+          }
+          return protobuf.Message.ChatMessage.getDefaultInstance();
+        } else {
+          if (dataCase_ == 7) {
+            return imMsgBuilder_.getMessage();
+          }
+          return protobuf.Message.ChatMessage.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .protobuf.ChatMessage imMsg = 7;</code>
+       */
+      public Builder setImMsg(protobuf.Message.ChatMessage value) {
+        if (imMsgBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          data_ = value;
+          onChanged();
+        } else {
+          imMsgBuilder_.setMessage(value);
+        }
+        dataCase_ = 7;
         return this;
       }
       /**
-       * <pre>
-       *数据
-       * </pre>
-       *
-       * <code>optional string data = 3;</code>
+       * <code>optional .protobuf.ChatMessage imMsg = 7;</code>
        */
-      public Builder clearData() {
-        
-        data_ = getDefaultInstance().getData();
-        onChanged();
+      public Builder setImMsg(
+          protobuf.Message.ChatMessage.Builder builderForValue) {
+        if (imMsgBuilder_ == null) {
+          data_ = builderForValue.build();
+          onChanged();
+        } else {
+          imMsgBuilder_.setMessage(builderForValue.build());
+        }
+        dataCase_ = 7;
         return this;
       }
       /**
-       * <pre>
-       *数据
-       * </pre>
-       *
-       * <code>optional string data = 3;</code>
+       * <code>optional .protobuf.ChatMessage imMsg = 7;</code>
        */
-      public Builder setDataBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        data_ = value;
-        onChanged();
+      public Builder mergeImMsg(protobuf.Message.ChatMessage value) {
+        if (imMsgBuilder_ == null) {
+          if (dataCase_ == 7 &&
+              data_ != protobuf.Message.ChatMessage.getDefaultInstance()) {
+            data_ = protobuf.Message.ChatMessage.newBuilder((protobuf.Message.ChatMessage) data_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            data_ = value;
+          }
+          onChanged();
+        } else {
+          if (dataCase_ == 7) {
+            imMsgBuilder_.mergeFrom(value);
+          }
+          imMsgBuilder_.setMessage(value);
+        }
+        dataCase_ = 7;
         return this;
+      }
+      /**
+       * <code>optional .protobuf.ChatMessage imMsg = 7;</code>
+       */
+      public Builder clearImMsg() {
+        if (imMsgBuilder_ == null) {
+          if (dataCase_ == 7) {
+            dataCase_ = 0;
+            data_ = null;
+            onChanged();
+          }
+        } else {
+          if (dataCase_ == 7) {
+            dataCase_ = 0;
+            data_ = null;
+          }
+          imMsgBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>optional .protobuf.ChatMessage imMsg = 7;</code>
+       */
+      public protobuf.Message.ChatMessage.Builder getImMsgBuilder() {
+        return getImMsgFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .protobuf.ChatMessage imMsg = 7;</code>
+       */
+      public protobuf.Message.ChatMessageOrBuilder getImMsgOrBuilder() {
+        if ((dataCase_ == 7) && (imMsgBuilder_ != null)) {
+          return imMsgBuilder_.getMessageOrBuilder();
+        } else {
+          if (dataCase_ == 7) {
+            return (protobuf.Message.ChatMessage) data_;
+          }
+          return protobuf.Message.ChatMessage.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .protobuf.ChatMessage imMsg = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          protobuf.Message.ChatMessage, protobuf.Message.ChatMessage.Builder, protobuf.Message.ChatMessageOrBuilder> 
+          getImMsgFieldBuilder() {
+        if (imMsgBuilder_ == null) {
+          if (!(dataCase_ == 7)) {
+            data_ = protobuf.Message.ChatMessage.getDefaultInstance();
+          }
+          imMsgBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              protobuf.Message.ChatMessage, protobuf.Message.ChatMessage.Builder, protobuf.Message.ChatMessageOrBuilder>(
+                  (protobuf.Message.ChatMessage) data_,
+                  getParentForChildren(),
+                  isClean());
+          data_ = null;
+        }
+        dataCase_ = 7;
+        onChanged();;
+        return imMsgBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          protobuf.Message.HeartBeat, protobuf.Message.HeartBeat.Builder, protobuf.Message.HeartBeatOrBuilder> hbMsgBuilder_;
+      /**
+       * <code>optional .protobuf.HeartBeat hbMsg = 8;</code>
+       */
+      public protobuf.Message.HeartBeat getHbMsg() {
+        if (hbMsgBuilder_ == null) {
+          if (dataCase_ == 8) {
+            return (protobuf.Message.HeartBeat) data_;
+          }
+          return protobuf.Message.HeartBeat.getDefaultInstance();
+        } else {
+          if (dataCase_ == 8) {
+            return hbMsgBuilder_.getMessage();
+          }
+          return protobuf.Message.HeartBeat.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .protobuf.HeartBeat hbMsg = 8;</code>
+       */
+      public Builder setHbMsg(protobuf.Message.HeartBeat value) {
+        if (hbMsgBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          data_ = value;
+          onChanged();
+        } else {
+          hbMsgBuilder_.setMessage(value);
+        }
+        dataCase_ = 8;
+        return this;
+      }
+      /**
+       * <code>optional .protobuf.HeartBeat hbMsg = 8;</code>
+       */
+      public Builder setHbMsg(
+          protobuf.Message.HeartBeat.Builder builderForValue) {
+        if (hbMsgBuilder_ == null) {
+          data_ = builderForValue.build();
+          onChanged();
+        } else {
+          hbMsgBuilder_.setMessage(builderForValue.build());
+        }
+        dataCase_ = 8;
+        return this;
+      }
+      /**
+       * <code>optional .protobuf.HeartBeat hbMsg = 8;</code>
+       */
+      public Builder mergeHbMsg(protobuf.Message.HeartBeat value) {
+        if (hbMsgBuilder_ == null) {
+          if (dataCase_ == 8 &&
+              data_ != protobuf.Message.HeartBeat.getDefaultInstance()) {
+            data_ = protobuf.Message.HeartBeat.newBuilder((protobuf.Message.HeartBeat) data_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            data_ = value;
+          }
+          onChanged();
+        } else {
+          if (dataCase_ == 8) {
+            hbMsgBuilder_.mergeFrom(value);
+          }
+          hbMsgBuilder_.setMessage(value);
+        }
+        dataCase_ = 8;
+        return this;
+      }
+      /**
+       * <code>optional .protobuf.HeartBeat hbMsg = 8;</code>
+       */
+      public Builder clearHbMsg() {
+        if (hbMsgBuilder_ == null) {
+          if (dataCase_ == 8) {
+            dataCase_ = 0;
+            data_ = null;
+            onChanged();
+          }
+        } else {
+          if (dataCase_ == 8) {
+            dataCase_ = 0;
+            data_ = null;
+          }
+          hbMsgBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>optional .protobuf.HeartBeat hbMsg = 8;</code>
+       */
+      public protobuf.Message.HeartBeat.Builder getHbMsgBuilder() {
+        return getHbMsgFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .protobuf.HeartBeat hbMsg = 8;</code>
+       */
+      public protobuf.Message.HeartBeatOrBuilder getHbMsgOrBuilder() {
+        if ((dataCase_ == 8) && (hbMsgBuilder_ != null)) {
+          return hbMsgBuilder_.getMessageOrBuilder();
+        } else {
+          if (dataCase_ == 8) {
+            return (protobuf.Message.HeartBeat) data_;
+          }
+          return protobuf.Message.HeartBeat.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .protobuf.HeartBeat hbMsg = 8;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          protobuf.Message.HeartBeat, protobuf.Message.HeartBeat.Builder, protobuf.Message.HeartBeatOrBuilder> 
+          getHbMsgFieldBuilder() {
+        if (hbMsgBuilder_ == null) {
+          if (!(dataCase_ == 8)) {
+            data_ = protobuf.Message.HeartBeat.getDefaultInstance();
+          }
+          hbMsgBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              protobuf.Message.HeartBeat, protobuf.Message.HeartBeat.Builder, protobuf.Message.HeartBeatOrBuilder>(
+                  (protobuf.Message.HeartBeat) data_,
+                  getParentForChildren(),
+                  isClean());
+          data_ = null;
+        }
+        dataCase_ = 8;
+        onChanged();;
+        return hbMsgBuilder_;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2551,54 +2048,49 @@ public final class Base {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:protobuf.BaseRsp)
+      // @@protoc_insertion_point(builder_scope:protobuf.BaseMsg)
     }
 
-    // @@protoc_insertion_point(class_scope:protobuf.BaseRsp)
-    private static final protobuf.Base.BaseRsp DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:protobuf.BaseMsg)
+    private static final protobuf.Base.BaseMsg DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new protobuf.Base.BaseRsp();
+      DEFAULT_INSTANCE = new protobuf.Base.BaseMsg();
     }
 
-    public static protobuf.Base.BaseRsp getDefaultInstance() {
+    public static protobuf.Base.BaseMsg getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<BaseRsp>
-        PARSER = new com.google.protobuf.AbstractParser<BaseRsp>() {
-      public BaseRsp parsePartialFrom(
+    private static final com.google.protobuf.Parser<BaseMsg>
+        PARSER = new com.google.protobuf.AbstractParser<BaseMsg>() {
+      public BaseMsg parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new BaseRsp(input, extensionRegistry);
+          return new BaseMsg(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<BaseRsp> parser() {
+    public static com.google.protobuf.Parser<BaseMsg> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<BaseRsp> getParserForType() {
+    public com.google.protobuf.Parser<BaseMsg> getParserForType() {
       return PARSER;
     }
 
-    public protobuf.Base.BaseRsp getDefaultInstanceForType() {
+    public protobuf.Base.BaseMsg getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protobuf_BaseReq_descriptor;
+    internal_static_protobuf_BaseMsg_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_protobuf_BaseReq_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protobuf_BaseRsp_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_protobuf_BaseRsp_fieldAccessorTable;
+      internal_static_protobuf_BaseMsg_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2608,19 +2100,19 @@ public final class Base {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nbase.proto\022\010protobuf\032\rmessage.proto\"\322\001" +
-      "\n\007BaseReq\022\020\n\010deviceId\030\001 \001(\t\022\r\n\005uidId\030\002 \001" +
-      "(\t\022 \n\004type\030\003 \001(\0162\022.protobuf.DataType\022.\n\n" +
-      "connectMsg\030\004 \001(\0132\030.protobuf.ConnectMessa" +
-      "geH\000\022&\n\005imMsg\030\005 \001(\0132\025.protobuf.ChatMessa" +
-      "geH\000\022$\n\005hbMsg\030\006 \001(\0132\023.protobuf.HeartBeat" +
-      "H\000B\006\n\004data\"R\n\007BaseRsp\022\'\n\terrorCode\030\001 \001(\016" +
-      "2\024.protobuf.StatusCode\022\020\n\010errorMsg\030\002 \001(\t" +
-      "\022\014\n\004data\030\003 \001(\t*B\n\010DataType\022\024\n\020TYPE_CONNE" +
-      "CT_MSG\020\000\022\017\n\013TYPE_IM_MSG\020\001\022\017\n\013TYPE_HB_MSG",
-      "\020\002*e\n\nStatusCode\022\027\n\023STATUS_CODE_SUCCESS\020" +
-      "\000\022\036\n\032ERROR_CODE_SESSION_Expired\020\001\022\036\n\032ERR" +
-      "OR_CODE_PARAMETER_ERROR\020\002b\006proto3"
+      "\n\nbase.proto\022\010protobuf\032\rmessage.proto\"\215\002" +
+      "\n\007BaseMsg\022\020\n\010deviceId\030\001 \001(\t\022\r\n\005uidId\030\002 \001" +
+      "(\t\022\'\n\terrorCode\030\003 \001(\0162\024.protobuf.StatusC" +
+      "ode\022\020\n\010errorMsg\030\004 \001(\t\022 \n\004type\030\005 \001(\0162\022.pr" +
+      "otobuf.DataType\022.\n\nconnectMsg\030\006 \001(\0132\030.pr" +
+      "otobuf.ConnectMessageH\000\022&\n\005imMsg\030\007 \001(\0132\025" +
+      ".protobuf.ChatMessageH\000\022$\n\005hbMsg\030\010 \001(\0132\023" +
+      ".protobuf.HeartBeatH\000B\006\n\004data*B\n\010DataTyp" +
+      "e\022\024\n\020TYPE_CONNECT_MSG\020\000\022\017\n\013TYPE_IM_MSG\020\001" +
+      "\022\017\n\013TYPE_HB_MSG\020\002*e\n\nStatusCode\022\027\n\023STATU",
+      "S_CODE_SUCCESS\020\000\022\036\n\032ERROR_CODE_SESSION_E" +
+      "xpired\020\001\022\036\n\032ERROR_CODE_PARAMETER_ERROR\020\002" +
+      "b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2635,18 +2127,12 @@ public final class Base {
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           protobuf.Message.getDescriptor(),
         }, assigner);
-    internal_static_protobuf_BaseReq_descriptor =
+    internal_static_protobuf_BaseMsg_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_protobuf_BaseReq_fieldAccessorTable = new
+    internal_static_protobuf_BaseMsg_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_protobuf_BaseReq_descriptor,
-        new java.lang.String[] { "DeviceId", "UidId", "Type", "ConnectMsg", "ImMsg", "HbMsg", "Data", });
-    internal_static_protobuf_BaseRsp_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_protobuf_BaseRsp_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_protobuf_BaseRsp_descriptor,
-        new java.lang.String[] { "ErrorCode", "ErrorMsg", "Data", });
+        internal_static_protobuf_BaseMsg_descriptor,
+        new java.lang.String[] { "DeviceId", "UidId", "ErrorCode", "ErrorMsg", "Type", "ConnectMsg", "ImMsg", "HbMsg", "Data", });
     protobuf.Message.getDescriptor();
   }
 

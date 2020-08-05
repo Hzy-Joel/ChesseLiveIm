@@ -15,10 +15,10 @@ class ServerInitializer : ChannelInitializer<SocketChannel>() {
         val channelPipeline = ch.pipeline()
         channelPipeline.addLast(
                 ProtobufVarint32FrameDecoder(), //解码时根据首位32字节切割长度
-                ProtobufDecoder(Base.BaseReq.getDefaultInstance()),  //转换实体类
+                ProtobufDecoder(Base.BaseMsg.getDefaultInstance()),  //转换实体类
                 ProtobufVarint32LengthFieldPrepender(), //编码是 byte 数组头加上实体类的长度
                 ProtobufEncoder(), // 实体 转化为 byte数组
-                BaseMsgHandler() // 自定义处理业务
+                BaseServerMsgHandler() // 自定义处理业务
         )
         println("Socket Channel $ch")
 

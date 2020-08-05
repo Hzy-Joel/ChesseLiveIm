@@ -1,5 +1,6 @@
-package com.hzy.chatim.client
+package com.hzy.chatim.test
 
+import com.hzy.chatim.client.ClientInitializer
 import io.netty.bootstrap.Bootstrap
 import io.netty.channel.EventLoopGroup
 import io.netty.channel.nio.NioEventLoopGroup
@@ -24,11 +25,10 @@ object Client {
 
             var i = 0
             while (i < Int.MAX_VALUE) {
-                i++
-                Thread.sleep(5000)
                 val data = create(i)
                 channel.writeAndFlush(data)
-                println("send:\n$data")
+                Thread.sleep(5000)
+                i++
             }
         } catch (ex: InterruptedException) {
             ex.printStackTrace()
@@ -39,14 +39,14 @@ object Client {
         }
     }
 
-    private fun create(i: Int): Base.BaseReq? {
-        val build = Base.BaseReq.newBuilder().apply {
-            uidId = i.toString()
+    private fun create(i: Int): Base.BaseMsg? {
+        val build = Base.BaseMsg.newBuilder().apply {
+            uidId = 10012.toString()
             deviceId = i.toString()
         }
         if (i == 0) return build.apply {
             val msg = Message.ConnectMessage.newBuilder().apply {
-                uid = i.toString()
+                uid = 10012.toString()
             }.build()
             connectMsg = msg
             type = Base.DataType.TYPE_CONNECT_MSG
@@ -54,12 +54,12 @@ object Client {
         return when {
             (i % 2 == 0) -> {
                 val msg = Message.ChatMessage.newBuilder().apply {
-                    uid = i.toString()
+                    uid = 10012.toString()
+                    tid = 10013.toString()
                 }.build()
                 build.apply {
                     imMsg = msg
                     type = Base.DataType.TYPE_IM_MSG
-                    println("do:type->$type")
                 }.build()
             }
             else -> {

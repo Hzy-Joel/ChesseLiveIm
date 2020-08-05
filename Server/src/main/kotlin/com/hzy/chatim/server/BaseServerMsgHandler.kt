@@ -1,15 +1,19 @@
-package com.hzy.chatim.client
+package com.hzy.chatim.server
 
-import com.hzy.chatim.base.BaseChannelHandler
-import com.hzy.chatim.utils.Log
+import com.hzy.chatim.server.handler.MsgHandlerServerManager
 import io.netty.channel.ChannelHandlerContext
+import io.netty.channel.ChannelInboundHandlerAdapter
+import protobuf.Base
 
 
-class BaseClientMsgHandler : BaseChannelHandler() {
+class BaseServerMsgHandler : ChannelInboundHandlerAdapter() {
 
     override fun channelRead(ctx: ChannelHandlerContext?, msg: Any?) {
         super.channelRead(ctx, msg)
-        //客户端接收信息
+        //当客户端发送消息时，服务端可以从该方法上获取到该消息值
+        if (msg !is Base.BaseMsg) return
+        //责任链派发消息
+        ctx?.let { MsgHandlerServerManager.handleMsg(msg, ctx) }
     }
 
     /**

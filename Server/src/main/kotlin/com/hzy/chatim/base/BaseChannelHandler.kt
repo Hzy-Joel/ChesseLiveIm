@@ -9,8 +9,7 @@ val TAG = "ChannelHandler"
 open class BaseChannelHandler : ChannelInboundHandlerAdapter() {
     override fun channelRead(ctx: ChannelHandlerContext?, msg: Any?) {
         super.channelRead(ctx, msg)
-        println("$TAG:$msg")
-        if (msg !is Base.BaseReq) return
+        if (msg !is Base.BaseMsg) return
         //储存channel
         ConnectionManager.refreshChannel(msg.uidId, ctx)
     }
@@ -23,9 +22,6 @@ open class BaseChannelHandler : ChannelInboundHandlerAdapter() {
      */
     @Throws(Exception::class)
     override fun channelActive(ctx: ChannelHandlerContext) {
-        print("Connection")
-        println("RemoteAddress : " + ctx.channel().remoteAddress() + " active !")
-        println("local Address " + ctx.channel().localAddress())
         ConnectionManager.refreshChannel(channel = ctx)
         super.channelActive(ctx)
     }

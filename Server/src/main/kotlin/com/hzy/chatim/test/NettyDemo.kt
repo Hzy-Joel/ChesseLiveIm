@@ -1,4 +1,4 @@
-package com.hzy.chatim
+package com.hzy.chatim.test
 
 import com.hzy.chatim.server.NettyServer
 
